@@ -15,7 +15,7 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 
-st.set_page_config(page_title="Token Vesting for next month", page_icon="🧐", layout="wide")
+st.set_page_config(page_title="Token Vesting for the next month", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
@@ -34,9 +34,7 @@ if authentication_status is False:
 elif authentication_status is None:
     st.warning('Please enter your username and password')
 elif authentication_status:
-    authenticator.logout('Logout', 'main', key='unique_key')
-    st.write(f'Welcome *{name}*')
-    
+   
     # ---- SIDEBAR ----
     authenticator.logout("Logout", "sidebar")
     st.sidebar.title(f"Welcome {name}")
