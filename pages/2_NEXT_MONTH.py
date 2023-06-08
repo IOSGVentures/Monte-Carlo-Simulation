@@ -229,7 +229,7 @@ elif authentication_status:
                          'Treasure DAO': vesting_schedule_treasuredao,
                          'Alethea': vesting_schedule_alethea,
                          'Perion': vesting_schedule_perion}
-    total_tokens =      {'Illuvium': 66666.67,
+    total_tokens = {'Illuvium': 66666.67,
                          'Arweave': 250000,
                          'Synthetix': 241936,
                          'Automata 1': 4800000,
