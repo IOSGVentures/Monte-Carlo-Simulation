@@ -229,7 +229,38 @@ elif authentication_status:
                          'Treasure DAO': vesting_schedule_treasuredao,
                          'Alethea': vesting_schedule_alethea,
                          'Perion': vesting_schedule_perion}
-
+    total_tokens =      {'Illuvium': 66666.67,
+                         'Arweave': 250000,
+                         'Synthetix': 241936,
+                         'Automata 1': 4800000,
+                         'Automata 2': 3750000,
+                         'Liquity': 357143,
+                         'Coin98': 2666667,
+                         'Uma': 101678.70,
+                         'Mcdex': 20000,
+                         'Izumi': 16150000,
+                         'Insurace': 228571.43,
+                         'Thales': 303030.00,
+                         'Impossible finance': 1666666.67,
+                         'Moonbeam': 5000000.00,
+                         'Astar': 19366666.00,
+                         'Ujenny': 148699,
+                         'Finnexus': 1250000.00,
+                         'Stakewise': 3333333.33,
+                         'Centrifuge': 1666666.67,
+                         'Galaxy': 1333333.33,
+                         'Kyve network': 5000000,
+                         'Mina': 537634,
+                         'Meta Pool': 1000000000,
+                         'Cypher': 54000000,
+                         'Starkware': 96318,
+                         'Aurora': 1000000,
+                         'Daosquare': 370370.00 ,
+                         'Burrow': 2000000,
+                         'Gitcoin': 468750,
+                         'Treasure DAO': 869293,
+                         'Alethea': 25000000.00,
+                         'Perion': 1000000}
     # Determine the earliest month among all projects
     earliest_month = min(min(vesting_schedules[project].keys()) for project in vesting_schedules)
 
@@ -269,5 +300,6 @@ elif authentication_status:
         for column in next_month_unlocked.columns:
             percentage = next_month_unlocked[column][0]
             if percentage > 0:
-                st.write(f"{column}: {round(percentage,2)}%")
+                unlocked_tokens = round(percentage * total_tokens[column] / 100)
+                st.write(f"{column}: {round(percentage,2)}% ({unlocked_tokens} tokens)")
 
