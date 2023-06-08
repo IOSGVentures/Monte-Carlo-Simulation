@@ -56,5 +56,5 @@ elif authentication_status:
     st.write('Our intuitive and user-friendly platform empowers you to effortlessly oversee all our invested projects in one centralized location, providing you with key parameters at your fingertips.') 
     st.write('With our "invested projects" page dedicated to displaying comprehensive information about all our invested projects, you can easily keep track of important details such as project names, token quantities, vesting periods, ROI and much more.')
     st.write('This overview ensures that you have a clear understanding of our token allocation, enabling you to make informed decisions and effectively manage our portfolio.')
-    st.write('"Nest Month Token Vesting" is designed specifically for token vesting. This page allows you to efficiently handle the process for the upcoming month.')
+    st.write('"next month Token Vesting" is designed specifically for token vesting. This page allows you to efficiently handle the process for the upcoming month.')
     
