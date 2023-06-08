@@ -40,8 +40,6 @@ if authentication_status is False:
 elif authentication_status is None:
     st.warning('Please enter your username and password')
 elif authentication_status:
-    authenticator.logout('Logout', 'main', key='unique_key')
-    st.write(f'Welcome *{name}*')
     
     # ---- SIDEBAR ----
     st.sidebar.success("Choose page above")
