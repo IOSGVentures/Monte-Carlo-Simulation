@@ -301,5 +301,6 @@ elif authentication_status:
             percentage = next_month_unlocked[column][0]
             if percentage > 0:
                 unlocked_tokens = round(percentage * total_tokens[column] / 100)
-                st.write(f"{column}: {round(percentage,2)}% ({unlocked_tokens} tokens)")
+                st.write(f"{column}: {round(percentage,2)}%")
+                st.write(f"{unlocked_tokens} tokens")
 
