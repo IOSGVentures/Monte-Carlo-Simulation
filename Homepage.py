@@ -21,7 +21,7 @@ from yaml.loader import SafeLoader
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 
-st.set_page_config(page_title="Token Vesting Management Homepage", page_icon="🧐", layout="wide")
+st.set_page_config(page_title="IOSG Token Vesting Management", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
