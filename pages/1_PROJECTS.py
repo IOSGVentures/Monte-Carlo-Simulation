@@ -47,7 +47,7 @@ elif authentication_status:
     
     
     # ---- MAINPAGE ----
-    st.title(":bar_chart: Invested Projects Overview")
+    st.title(":earth_asia: Invested Projects Overview")
     st.markdown("##")
     
     def ilv():
