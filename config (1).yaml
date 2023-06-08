@@ -1,0 +1,13 @@
+cookie:
+  expiry_days: 30
+  key: portfolio_projects
+  name: portfolio_p
+credentials:
+  usernames:
+    iosgv:
+      email: dbosnjak95va@gmail.com
+      name: iosg ventures
+      password: $2b$12$0JOqPI17QlgHINhTDkcdSuZZUc.Len2c4Xy3vXFqyZou5a7VA8P7u
+preauthorized:
+  emails:
+  - dbosnjak95va@gmail.com
