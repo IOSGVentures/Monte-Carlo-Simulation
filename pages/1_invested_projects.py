@@ -21,7 +21,7 @@ from yaml.loader import SafeLoader
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 
-st.set_page_config(page_title="Token Vesting Management", page_icon="🧐", layout="wide")
+st.set_page_config(page_title="Invested Projects Overview", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
@@ -40,8 +40,6 @@ if authentication_status is False:
 elif authentication_status is None:
     st.warning('Please enter your username and password')
 elif authentication_status:
-    authenticator.logout('Logout', 'main', key='unique_key')
-    st.write(f'Welcome *{name}*')
     
     # ---- SIDEBAR ----
     authenticator.logout("Logout", "sidebar")
