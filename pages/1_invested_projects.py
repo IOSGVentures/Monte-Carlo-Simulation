@@ -47,7 +47,7 @@ elif authentication_status:
     
     
     # ---- MAINPAGE ----
-    st.title(":bar_chart: Token Vesting Management")
+    st.title(":bar_chart: Invested Projects Overview")
     st.markdown("##")
     
     def ilv():
