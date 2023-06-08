@@ -44,9 +44,8 @@ elif authentication_status:
     st.write(f'Welcome *{name}*')
     
     # ---- SIDEBAR ----
-    authenticator.logout("Logout", "sidebar")
     st.sidebar.success("Choose page above")
-    
+    authenticator.logout("Logout", "sidebar")
     
     # ---- MAINPAGE ----
     st.title(":bar_chart: Token Vesting Management Homepage")
