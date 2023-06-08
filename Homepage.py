@@ -45,10 +45,18 @@ elif authentication_status:
     
     # ---- SIDEBAR ----
     authenticator.logout("Logout", "sidebar")
-    st.sidebar.title(f"Welcome {name}")
+    st.sidebar.success("Choose page above")
     
     
     # ---- MAINPAGE ----
     st.title(":bar_chart: Token Vesting Management Homepage")
     st.markdown("##")
+    st.write('
+Welcome to IOSG token vesting management web application!
+
+At this Application, we have a way to easily manage our acquired tokens. Our intuitive and user-friendly platform empowers you to effortlessly oversee all our invested projects in one centralized location, providing you with key parameters at your fingertips.
+
+With our first page dedicated to displaying comprehensive information about all our invested projects, you can easily keep track of important details such as project names, token quantities, vesting periods, ROI and much more. This overview ensures that you have a clear understanding of our token allocation, enabling you to make informed decisions and effectively manage our portfolio.
+
+Second page is designed specifically for token vesting. This page allows you to efficiently handle the process for the upcoming month. 
     
