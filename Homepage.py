@@ -48,7 +48,7 @@ elif authentication_status:
     authenticator.logout("Logout", "sidebar")
     
     # ---- MAINPAGE ----
-    st.title(":bar_chart: Token Vesting Management Homepage")
+    st.title(":bar_chart: IOSG Token Vesting Management")
     st.markdown("##")
     st.write('Welcome to IOSG token vesting management web application!')
     st.write('At this Application, we have a way to easily manage our acquired tokens.')
