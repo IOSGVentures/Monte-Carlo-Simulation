@@ -134,7 +134,7 @@ elif authentication_status:
         ax.set_xlabel('Date')
         ax.set_ylabel('ROI in %')
         ax.set_title('ROI in %')
-        return df_ilv,fig1,fig2
+        return df_ilv,fig,fig2
 
     def ar():
         token_ticker = "AR"
