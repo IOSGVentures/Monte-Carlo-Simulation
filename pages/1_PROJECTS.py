@@ -206,7 +206,22 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         return df_ar,fig
+        
+        fig2, ax = plt.subplots()
+        ax.plot(df_ar.index, df_ar['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
 
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        return df_ar,fig,fig2
+
+        
     def snx():
         token_ticker = "SNX"
         coingecko_id = "havven"
@@ -277,7 +292,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_snx,fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_snx.index, df_snx['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_snx,fig,fig2
 
     
     def ata1():
@@ -351,7 +379,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_ata1,fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_ata1.index, df_ata1['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_ata1,fig,fig2
 
     def ata2():
         token_ticker2 = "ATA"
@@ -425,7 +466,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_ata2,fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_ata2.index, df_ata2['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_ata2,fig,fig2
 
     def lqty():
         token_ticker = "LQTY"
@@ -504,7 +558,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_lqty,fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_lqty.index, df_lqty['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_lqty,fig,fig2
 
     def c98():
         token_ticker = "C98"
@@ -581,7 +648,21 @@ elif authentication_status:
         ax.set_xlabel('Date')
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
-        return df_c98,fig
+        
+        fig2, ax = plt.subplots()
+        ax.plot(df_c98.index, df_c98['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROi in %')
+        ax.set_title('ROi in %')
+        
+        return df_c98,fig,fig2
 
     def uma():
         token_ticker = "UMA"
@@ -652,7 +733,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_uma,fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_uma.index, df_uma['ROi'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_uma,fig,fig2
 
     def mux():
         token_ticker = "MUX"
@@ -723,7 +817,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_mcdex, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_mcdex.index, df_mcdex['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_mcdex, fig,fig2
 
     def izi():
         token_ticker = "IZI"
@@ -795,7 +902,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_izumi, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_izumi.index, df_izumi['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_izumi, fig,fig2
 
     def insur():
         token_ticker = "INSUR"
@@ -867,7 +987,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_insur, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_insur.index, df_insur['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_insur, fig,fig2
 
     def thales():
         token_ticker = "THALES"
@@ -941,7 +1074,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_thales, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_thales.index, df_thales['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_thales, fig,fig2
 
     def imf():
         token_ticker = "IF"
@@ -1014,7 +1160,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_if, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_if.index, df_if['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_if, fig,fig2
 
     def glmr():
         token_ticker = "GLMR"
@@ -1086,7 +1245,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_glmr, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_glmr.index, df_glmr['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_glmr, fig,fig2
 
     def astr():
         token_ticker = "ASTR"
@@ -1158,7 +1330,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_astr, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_astr.index, df_astr['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_astr, fig,fig2
 
     def ujenny():
         token_ticker = "UJENNY"
@@ -1229,7 +1414,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_ujenny, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_ujenny.index, df_ujenny['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_ujenny, fig,fig2
 
     def fnx():
         token_ticker = "FNX"
@@ -1362,7 +1560,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_swise, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_swise.index, df_swise['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_swise, fig,fig2
 
     def cfg():
         token_ticker = "CFG"
@@ -1440,7 +1651,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_cfg, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_cfg.index, df_cfg['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_cfg, fig,fig2
 
     def gxy():
         token_ticker = "GXY"
@@ -1631,7 +1855,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_mina, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_mina.index, df_mina['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_mina, fig,fig2
 
     def meta():
         token_ticker = "META"
@@ -1707,7 +1944,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_meta, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_meta.index, df_meta['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_meta, fig,fig2
 
     def cpr():
         token_ticker = "CPR"
@@ -1780,7 +2030,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_cpr, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_cpr.index, df_cpr['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_cpr, fig,fig2
 
     def stark():
         #vtoken_ticker = "CPR"
@@ -1924,7 +2187,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_aurora, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_aurora.index, df_aurora['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_aurora, fig,fig2
 
     def rice():
         token_ticker = "RICE"
@@ -1998,7 +2274,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_rice, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_rice.index, df_rice['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_rice, fig,fig2
 
     def brrr():
         token_ticker = "BRRR"
@@ -2073,7 +2362,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_brrr, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_brrr.index, df_brrr['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_brrr, fig,fig2
 
     def gtc():
         token_ticker = "GTC"
@@ -2148,7 +2450,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_gtc, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_gtc.index, df_gtc['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_gtc, fig,fig2
 
     def magic():
         token_ticker = "MAGIC"
@@ -2228,7 +2543,21 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_magic, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_magic.index, df_magic['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        
+        return df_magic, fig,fig2
 
     def ali():
         token_ticker = "ALI"
@@ -2308,7 +2637,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_ali, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_ali.index, df_ali['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_ali, fig,fig2
 
     def perc():
         token_ticker = "PERC"
@@ -2384,7 +2726,20 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
         
-        return df_perc, fig
+        fig2, ax = plt.subplots()
+        ax.plot(df_perc.index, df_perc['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        
+        return df_perc, fig,fig2
     
     columns = 3  # Number of columns
     selected_projects = []
@@ -2429,7 +2784,7 @@ elif authentication_status:
             st.header(f"Here's Token Vesting Schedule for {project.capitalize()}!")
             if project=='Illuvium':
                 st.subheader("Illuvium token vesting schedule")
-                df_ilv, f1, f2 = ilv()
+                df_ilv, f, f2 = ilv()
                 current_token_amount = df_ilv['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ilv['current_roi'].iloc[-1]
@@ -2442,11 +2797,11 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
-                st.pyplot(f1)
+                st.pyplot(f)
                 st.pyplot(f2)
             if project=='Arweave':
                 st.subheader("Arweave token vesting schedule")
-                df_ar,f = ar()
+                df_ar,f, f2 = ar()
                 current_token_amount = df_ar['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ar['current_roi'].iloc[-1]
@@ -2460,9 +2815,10 @@ elif authentication_status:
                 unlocked_pct_tokens = df_ar['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Synthetix':
                 st.subheader("Synthetix token vesting schedule")
-                d,f = snx()
+                d,f,f2 = snx()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2476,10 +2832,11 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Automata':
                 st.subheader("Automata token vesting schedule")
-                d1,f1 = ata1()
-                d2,f2 = ata2()
+                d1,f1,f11 = ata1()
+                d2,f2,f22 = ata2()
                 current_token_amount = d1['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount of Automata 1:** {current_token_amount}")
                 current_roi = d1['current_roi'].iloc[-1]
@@ -2493,6 +2850,7 @@ elif authentication_status:
                 unlocked_pct_tokens = d1['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens of Automata 1:** {unlocked_pct_tokens}")
                 st.pyplot(f1)
+                st.pyplot(f11)
                 
                 current_token_amount = d2['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount of Automata 2 in %:** {current_token_amount}")
@@ -2507,9 +2865,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d2['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens of Automata 2:** {unlocked_pct_tokens}")
                 st.pyplot(f2)
+                st.pyplot(f22)
             if project=='Liquity':
                 st.subheader("Liquity token vesting schedule")
-                d,f = lqty()
+                d,f,f2 = lqty()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2523,9 +2882,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Coin98':
                 st.subheader("Coin98 token vesting schedule")
-                d,f = c98()
+                d,f,f2 = c98()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2539,9 +2899,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Uma':
                 st.subheader("Uma token vesting schedule")
-                d,f = uma()
+                d,f,f2 = uma()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2555,9 +2916,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Mcdex':
                 st.subheader("Mcdex token vesting schedule")
-                d,f = mux()
+                d,f,f2 = mux()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2571,9 +2933,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Insurace':
                 st.subheader("Izumi token vesting schedule")
-                d,f = insur()
+                d,f,f2 = insur()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2587,6 +2950,7 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Izumi':
                 st.subheader("Izumi token vesting schedule")
                 d,f = izi()
