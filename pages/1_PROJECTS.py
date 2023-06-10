@@ -121,8 +121,20 @@ elif authentication_status:
         ax.set_xlabel('Date')
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
+        
+        fig2, ax = plt.subplots()
+        ax.plot(df_ilv.index, df_ilv['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
 
-        return df_ilv,fig
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        return df_ilv,fig1,fig2
 
     def ar():
         token_ticker = "AR"
@@ -2417,7 +2429,7 @@ elif authentication_status:
             st.header(f"Here's Token Vesting Schedule for {project.capitalize()}!")
             if project=='Illuvium':
                 st.subheader("Illuvium token vesting schedule")
-                df_ilv, f = ilv()
+                df_ilv, f1, f2 = ilv()
                 current_token_amount = df_ilv['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ilv['current_roi'].iloc[-1]
@@ -2430,7 +2442,8 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
-                st.pyplot(f)
+                st.pyplot(f1)
+                st.pyplot(f2)
             if project=='Arweave':
                 st.subheader("Arweave token vesting schedule")
                 df_ar,f = ar()
