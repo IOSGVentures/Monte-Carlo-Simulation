@@ -2953,7 +2953,7 @@ elif authentication_status:
                 st.pyplot(f2)
             if project=='Izumi':
                 st.subheader("Izumi token vesting schedule")
-                d,f = izi()
+                d,f,f2 = izi()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2967,9 +2967,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Thales':
                 st.subheader("Thales token vesting schedule")
-                d,f = thales()
+                d,f,f2 = thales()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2983,9 +2984,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Impossible finance':
                 st.subheader("Impossible finance token vesting schedule")
-                d,f = imf()
+                d,f,f2 = imf()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2999,9 +3001,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Moonbeam':
                 st.subheader("Moonbeam token vesting schedule")
-                d,f = glmr()
+                d,f,f2 = glmr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3015,9 +3018,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Astar':
                 st.subheader("Astar token vesting schedule")
-                d,f = astr()
+                d,f,f2 = astr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3031,9 +3035,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='uJenny':
                 st.subheader("uJenny token vesting schedule")
-                d,f = ujenny()
+                d,f,f2 = ujenny()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3047,6 +3052,7 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Finnexus':
                 st.subheader("Finnexus token vesting schedule")
                 d,f = fnx()
@@ -3065,7 +3071,7 @@ elif authentication_status:
                 st.pyplot(f)
             if project=='Stakewise':
                 st.subheader("Stakewise token vesting schedule")
-                d,f = swise()
+                d,f,f2 = swise()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3079,9 +3085,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Centrifuge':
                 st.subheader("Centrifuge token vesting schedule")
-                d,f = cfg()
+                d,f,f2 = cfg()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3095,6 +3102,7 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Galaxy':
                 st.subheader("Galaxy token vesting schedule")
                 d,f = gxy()
@@ -3111,6 +3119,7 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                
             if project=='Kyve network':
                 st.subheader("Kyve network token vesting schedule")
                 d,f = kyve()
@@ -3127,9 +3136,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+              
             if project=='Mina':
                 st.subheader("Mina token vesting schedule")
-                d,f = mina()
+                d,f,f2 = mina()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3143,9 +3153,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Meta pool':
                 st.subheader("Meta pool token vesting schedule")
-                d,f = meta()
+                d,f,f2 = meta()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3159,9 +3170,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Cypher MOD':
                 st.subheader("Cypher MOD token vesting schedule")
-                d,f = cpr()
+                d,f,f2 = cpr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3175,6 +3187,7 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Starkware':
                 st.subheader("Starkware token vesting schedule")
                 d,f = stark()
@@ -3193,7 +3206,7 @@ elif authentication_status:
                 st.pyplot(f)
             if project=='Aurora':
                 st.subheader("Aurora token vesting schedule")
-                d,f = aurora()
+                d,f,f2 = aurora()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3207,9 +3220,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Daosquare':
                 st.subheader("Daosquare token vesting schedule")
-                d,f = rice()
+                d,f,f2 = rice()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3223,9 +3237,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Burrow':
                 st.subheader("Burrow token vesting schedule")
-                d,f = brrr()
+                d,f,f2 = brrr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3239,9 +3254,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Gitcoin':
                 st.subheader("Gitcoin token vesting schedule")
-                d,f = gtc()
+                d,f,f2 = gtc()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3255,9 +3271,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Treasure DAO':
                 st.subheader("Treasure DAO token vesting schedule")
-                d,f = magic()
+                d,f,f2 = magic()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3271,9 +3288,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Alethea':
                 st.subheader("Alethea MOD token vesting schedule")
-                d,f = ali()
+                d,f,f2 = ali()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3287,9 +3305,10 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
             if project=='Perion':
                 st.subheader("Perion MOD token vesting schedule")
-                d,f = perc()
+                d,f,f2 = perc()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -3303,3 +3322,4 @@ elif authentication_status:
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
+                st.pyplot(f2)
