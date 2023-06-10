@@ -104,6 +104,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_ilv['next_vesting_date'] = df_ilv['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_ilv = df_ilv.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_ilv.rename(columns={'price': 'token_price'}, inplace=True)
+        df_ilv['ROI'] = (df_ilv['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_ilv.index, df_ilv['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -171,6 +176,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_ar['next_vesting_date'] = df_ar['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_ar = df_ar.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_ar.rename(columns={'price': 'token_price'}, inplace=True)
+        df_ar['ROI'] = (df_ar['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_ar.index, df_ar['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -237,6 +247,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_snx['next_vesting_date'] = df_snx['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_snx = df_snx.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_snx.rename(columns={'price': 'token_price'}, inplace=True)
+        df_snx['ROI'] = (df_snx['token_price'] - entry_price) / entry_price * 100
+
         fig, ax = plt.subplots()
         ax.plot(df_snx.index, df_snx['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -305,6 +320,12 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_ata1['next_vesting_date'] = df_ata1['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_ata1 = df_ata1.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_ata1.rename(columns={'price': 'token_price'}, inplace=True)
+        df_ata1['ROI'] = (df_ata1['token_price'] - entry_price) / entry_price * 100
+
+        
         fig, ax = plt.subplots()
         ax.plot(df_ata1.index, df_ata1['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -372,6 +393,12 @@ elif authentication_status:
         df_ata2.index = df_ata2.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_ata2['next_vesting_date'] = df_ata2['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_ata2 = df_ata2.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_ata2.rename(columns={'price': 'token_price'}, inplace=True)
+        df_ata2['ROI'] = (df_ata2['token_price'] - entry_price) / entry_price * 100
+
         
         fig, ax = plt.subplots()
         ax.plot(df_ata2.index, df_ata2['unlocked_pct_tokens'])
@@ -446,6 +473,12 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_lqty['next_vesting_date'] = df_lqty['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_lqty = df_lqty.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_lqty.rename(columns={'price': 'token_price'}, inplace=True)
+        df_lqty['ROI'] = (df_lqty['token_price'] - entry_price) / entry_price * 100
+
+        
         fig, ax = plt.subplots()
         ax.plot(df_lqty.index, df_lqty['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -518,6 +551,12 @@ elif authentication_status:
         df_c98.index = df_c98.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_c98['next_vesting_date'] = df_c98['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_c98 = df_c98.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_c98.rename(columns={'price': 'token_price'}, inplace=True)
+        df_c98['ROI'] = (df_c98['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_c98.index, df_c98['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -582,6 +621,11 @@ elif authentication_status:
         df_uma.index = df_uma.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_uma['next_vesting_date'] = df_uma['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_uma = df_uma.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_uma.rename(columns={'price': 'token_price'}, inplace=True)
+        df_uma['ROI'] = (df_uma['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_uma.index, df_uma['unlocked_pct_tokens'])
@@ -648,6 +692,11 @@ elif authentication_status:
         df_mcdex.index = df_mcdex.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_mcdex['next_vesting_date'] = df_mcdex['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_mcdex = df_mcdex.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_mcdex.rename(columns={'price': 'token_price'}, inplace=True)
+        df_mcdex['ROI'] = (df_mcdex['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_mcdex.index, df_mcdex['unlocked_pct_tokens'])
@@ -716,6 +765,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_izumi['next_vesting_date'] = df_izumi['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_izumi = df_izumi.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_izumi.rename(columns={'price': 'token_price'}, inplace=True)
+        df_izumi['ROI'] = (df_izumi['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_izumi.index, df_izumi['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -782,6 +836,11 @@ elif authentication_status:
         df_insur.index = df_insur.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_insur['next_vesting_date'] = df_insur['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_insur = df_insur.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_insur.rename(columns={'price': 'token_price'}, inplace=True)
+        df_insur['ROI'] = (df_insur['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_insur.index, df_insur['unlocked_pct_tokens'])
@@ -852,6 +911,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_thales['next_vesting_date'] = df_thales['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_thales = df_thales.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_thales.rename(columns={'price': 'token_price'}, inplace=True)
+        df_thales['ROI'] = (df_thales['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_thales.index, df_thales['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -920,6 +984,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_if['next_vesting_date'] = df_if['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_if = df_if.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_if.rename(columns={'price': 'token_price'}, inplace=True)
+        df_if['ROI'] = (df_if['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_if.index, df_if['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -986,6 +1055,11 @@ elif authentication_status:
         df_glmr.index = df_glmr.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_glmr['next_vesting_date'] = df_glmr['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_glmr = df_glmr.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_glmr.rename(columns={'price': 'token_price'}, inplace=True)
+        df_glmr['ROI'] = (df_glmr['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_glmr.index, df_glmr['unlocked_pct_tokens'])
@@ -1054,6 +1128,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_astr['next_vesting_date'] = df_astr['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_astr = df_astr.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_astr.rename(columns={'price': 'token_price'}, inplace=True)
+        df_astr['ROI'] = (df_astr['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_astr.index, df_astr['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -1119,6 +1198,11 @@ elif authentication_status:
         df_ujenny.index = df_ujenny.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_ujenny['next_vesting_date'] = df_ujenny['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_ujenny = df_ujenny.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_ujenny.rename(columns={'price': 'token_price'}, inplace=True)
+        df_ujenny['ROI'] = (df_ujenny['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_ujenny.index, df_ujenny['unlocked_pct_tokens'])
@@ -1248,6 +1332,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_swise['next_vesting_date'] = df_swise['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_swise = df_swise.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_swise.rename(columns={'price': 'token_price'}, inplace=True)
+        df_swise['ROI'] = (df_swise['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_swise.index, df_swise['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -1320,6 +1409,11 @@ elif authentication_status:
         df_cfg.index = df_cfg.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_cfg['next_vesting_date'] = df_cfg['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_cfg = df_cfg.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_cfg.rename(columns={'price': 'token_price'}, inplace=True)
+        df_cfg['ROI'] = (df_cfg['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_cfg.index, df_cfg['unlocked_pct_tokens'])
@@ -1507,6 +1601,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_mina['next_vesting_date'] = df_mina['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_mina = df_mina.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_mina.rename(columns={'price': 'token_price'}, inplace=True)
+        df_mina['ROI'] = (df_mina['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_mina.index, df_mina['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -1578,6 +1677,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_meta['next_vesting_date'] = df_meta['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_meta = df_meta.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_meta.rename(columns={'price': 'token_price'}, inplace=True)
+        df_meta['ROI'] = (df_meta['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_meta.index, df_meta['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -1645,6 +1749,11 @@ elif authentication_status:
         df_cpr.index = df_cpr.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_cpr['next_vesting_date'] = df_cpr['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_cpr = df_cpr.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_cpr.rename(columns={'price': 'token_price'}, inplace=True)
+        df_cpr['ROI'] = (df_cpr['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_cpr.index, df_cpr['unlocked_pct_tokens'])
@@ -1785,6 +1894,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_aurora['next_vesting_date'] = df_aurora['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_aurora = df_aurora.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_aurora.rename(columns={'price': 'token_price'}, inplace=True)
+        df_aurora['ROI'] = (df_aurora['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_aurora.index, df_aurora['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -1853,6 +1967,11 @@ elif authentication_status:
         df_rice.index = df_rice.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_rice['next_vesting_date'] = df_rice['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_rice = df_rice.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_rice.rename(columns={'price': 'token_price'}, inplace=True)
+        df_rice['ROI'] = (df_rice['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_rice.index, df_rice['unlocked_pct_tokens'])
@@ -1924,6 +2043,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_brrr['next_vesting_date'] = df_brrr['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_brrr = df_brrr.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_brrr.rename(columns={'price': 'token_price'}, inplace=True)
+        df_brrr['ROI'] = (df_brrr['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_brrr.index, df_brrr['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -1993,6 +2117,11 @@ elif authentication_status:
         df_gtc.index = df_gtc.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_gtc['next_vesting_date'] = df_gtc['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_gtc = df_gtc.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_gtc.rename(columns={'price': 'token_price'}, inplace=True)
+        df_gtc['ROI'] = (df_gtc['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_gtc.index, df_gtc['unlocked_pct_tokens'])
@@ -2069,6 +2198,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_magic['next_vesting_date'] = df_magic['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_magic = df_magic.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_magic.rename(columns={'price': 'token_price'}, inplace=True)
+        df_magic['ROI'] = (df_magic['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_magic.index, df_magic['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -2144,6 +2278,11 @@ elif authentication_status:
         # Change the dates in the next_vesting_date column to only display the date part
         df_ali['next_vesting_date'] = df_ali['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
         
+        # Add 'token_price' column from 'price' column in dfdf
+        df_ali = df_ali.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_ali.rename(columns={'price': 'token_price'}, inplace=True)
+        df_ali['ROI'] = (df_ali['token_price'] - entry_price) / entry_price * 100
+        
         fig, ax = plt.subplots()
         ax.plot(df_ali.index, df_ali['unlocked_pct_tokens'])
         # Set the x-axis formatter to display dates in a readable format
@@ -2214,6 +2353,11 @@ elif authentication_status:
         df_perc.index = df_perc.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_perc['next_vesting_date'] = df_perc['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+        
+        # Add 'token_price' column from 'price' column in dfdf
+        df_perc = df_perc.merge(dfdf[['price']], how='left', left_index=True, right_index=True)
+        df_perc.rename(columns={'price': 'token_price'}, inplace=True)
+        df_perc['ROI'] = (df_perc['token_price'] - entry_price) / entry_price * 100
         
         fig, ax = plt.subplots()
         ax.plot(df_perc.index, df_perc['unlocked_pct_tokens'])
