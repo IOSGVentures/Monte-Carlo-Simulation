@@ -62,8 +62,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -119,8 +129,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -175,8 +195,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -233,9 +263,18 @@ elif authentication_status:
         total_tokens_number = 4800000
 
         # call coingecko api to get real-time price
-        url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id1}&vs_currencies=usd"
+        url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
-        price = response.json()[coingecko_id1]["usd"]
+        response1 = requests.get(url1)
+        price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -291,9 +330,19 @@ elif authentication_status:
         total_tokens_number = 3750000
 
         # call coingecko api to get real-time price
-        url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id2}&vs_currencies=usd"
+        url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
-        price = response.json()[coingecko_id2]["usd"]
+        response1 = requests.get(url1)
+        price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -355,8 +404,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -419,8 +478,17 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -474,8 +542,17 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -531,8 +608,17 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -588,8 +674,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -645,8 +741,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -704,8 +810,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -763,8 +879,17 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -820,8 +945,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -877,8 +1012,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -934,8 +1079,17 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -1052,8 +1206,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -1115,8 +1279,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -1291,8 +1465,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -1353,8 +1537,17 @@ elif authentication_status:
         total_tokens_number = 1000000000
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -1412,8 +1605,17 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -1541,8 +1743,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -1601,8 +1813,17 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -1662,8 +1883,17 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = price
@@ -1722,8 +1952,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -1787,8 +2027,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = price
@@ -1852,8 +2102,18 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
+
 
         # calculate current ROI
         current_price = 1.05
@@ -1914,8 +2174,17 @@ elif authentication_status:
 
         # call coingecko api to get real-time price
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        url1 = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart?vs_currency=usd&days=max"
         response = requests.get(url)
+        response1 = requests.get(url1)
         price = response.json()[coingecko_id]["usd"]
+        price1 = response1.json()
+        # Convert the timestamp to datetime format and extract the date
+        dfdf = pd.DataFrame(price1['prices'], columns=['timestamp', 'price'])
+        dfdf['timestamp'] = pd.to_datetime(dfdf['timestamp'], unit='ms').dt.date
+
+        # Set the date as the index
+        dfdf.set_index('timestamp', inplace=True)
 
         # calculate current ROI
         current_price = 1.05
