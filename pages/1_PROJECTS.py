@@ -205,7 +205,6 @@ elif authentication_status:
         ax.set_xlabel('Date')
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
-        return df_ar,fig
         
         fig2, ax = plt.subplots()
         ax.plot(df_ar.index, df_ar['ROI'])
