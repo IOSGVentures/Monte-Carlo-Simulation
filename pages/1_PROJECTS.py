@@ -733,7 +733,7 @@ elif authentication_status:
         ax.set_title('Unlocked Tokens %')
         
         fig2, ax = plt.subplots()
-        ax.plot(df_uma.index, df_uma['ROi'])
+        ax.plot(df_uma.index, df_uma['ROI'])
         # Set the x-axis formatter to display dates in a readable format
         ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
