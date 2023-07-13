@@ -2866,24 +2866,24 @@ elif authentication_status:
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Coin98':
-                st.subheader("Coin98 token vesting schedule")
                 d,f,f2 = c98()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} C98")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Uma':
-                st.subheader("Uma token vesting schedule")
                 d,f,f2 = uma()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
