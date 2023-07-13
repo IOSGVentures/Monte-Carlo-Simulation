@@ -2829,7 +2829,7 @@ elif authentication_status:
                 current_usd_amount = d1['current_usd_amount'].iloc[-1]
                 unlocked_pct_tokens = d1['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3, col4 = st.columns(4)
-                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} SNX")
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} ATA")
                 col2.metric("**ROI**", f"{current_roi} %")
                 col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 col4.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
@@ -2841,7 +2841,7 @@ elif authentication_status:
                 current_usd_amount = d2['current_usd_amount'].iloc[-1]
                 unlocked_pct_tokens = d2['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3, col4 = st.columns(4)
-                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} SNX")
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} ATA")
                 col2.metric("**ROI**", f"{current_roi} %")
                 col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 col4.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
