@@ -2822,36 +2822,29 @@ elif authentication_status:
                 col4.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f2)
             if project=='Automata':
-                st.subheader("Automata token vesting schedule")
                 d1,f1,f11 = ata1()
                 d2,f2,f22 = ata2()
                 current_token_amount = d1['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount of Automata 1:** {current_token_amount}")
                 current_roi = d1['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI of Automata 1 in %:** {current_roi}")
                 current_usd_amount = d1['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount of Automata 1:** {current_usd_amount}")
-                next_vesting_date = d1['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date for Automata 1:** {next_vesting_date}")
-                end_of_vesting = d1['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting for Automata 1:** {end_of_vesting}")
                 unlocked_pct_tokens = d1['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens of Automata 1:** {unlocked_pct_tokens}")
+                col1, col2, col3, col4 = st.columns(4)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} SNX")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
+                col4.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f1)
                 st.pyplot(f11)
                 
                 current_token_amount = d2['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount of Automata 2 in %:** {current_token_amount}")
                 current_roi = d2['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI of Automata 2:** {current_roi}")
                 current_usd_amount = d2['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount of Automata 2:** {current_usd_amount}")
-                next_vesting_date = d2['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date for Automata 2:** {next_vesting_date}")
-                end_of_vesting = d2['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting for Automata 2:** {end_of_vesting}")
                 unlocked_pct_tokens = d2['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens of Automata 2:** {unlocked_pct_tokens}")
+                col1, col2, col3, col4 = st.columns(4)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} SNX")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
+                col4.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f2)
                 st.pyplot(f22)
             if project=='Liquity':
