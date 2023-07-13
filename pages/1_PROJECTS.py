@@ -2790,12 +2790,11 @@ elif authentication_status:
                 next_vesting_date = df_ilv['next_vesting_date'].iloc[-1]
                 end_of_vesting = df_ilv['end_of_vesting'].iloc[-1]
                 unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
-                col1, col2, col3, col4, col5, col6 = st.columns(6)
+                col1, col2, col3, col4 = st.columns(4)
                 col1.metric("**Token Amount**", f"{numerize(current_token_amount)} ILV")
                 col2.metric("**ROI**", f"{numerize(current_roi)} %")
                 col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
-                col4.metric("**Next vesting date**", f"{next_vesting_date}")
-                col6.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
+                col4.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Arweave':
