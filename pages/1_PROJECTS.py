@@ -2798,21 +2798,16 @@ elif authentication_status:
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Arweave':
-                st.subheader("Arweave token vesting schedule")
                 df_ar,f, f2 = ar()
                 current_token_amount = df_ar['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ar['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = df_ar['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
-                next_vesting_date = df_ar['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = df_ar['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = df_ar['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
-                st.pyplot(f)
+                col1, col2, col3, col4 = st.columns(4)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} ILV")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
+                col4.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f2)
             if project=='Synthetix':
                 st.subheader("Synthetix token vesting schedule")
