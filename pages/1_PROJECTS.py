@@ -2785,6 +2785,13 @@ elif authentication_status:
                 st.subheader("Illuvium token vesting schedule")
                 df_ilv, f, f2 = ilv()
                 current_token_amount = df_ilv['current_token_amount'].iloc[-1]
+                col1, col2, col3, col4, col5, col6 = st.columns(6)
+                col1.metric("**Token Amount**", f"{current_token_amount} ILV")
+                col2.metric("**ROI**", f"{current_token_amount} %")
+                col3.metric("**USD amount**", f"{current_usd_amount} $")
+                col4.metric("**Next vesting date**", f"{next_vesting_date}")
+                col5.metric("**End of vesting**", f"{end_of_vesting}")
+                col6.metric("**Unlocked**", f"{unlocked_pct_tokens} %")
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ilv['current_roi'].iloc[-1]
                 st.markdown(f"**Current ROI in %:** {current_roi}")
