@@ -2785,6 +2785,11 @@ elif authentication_status:
                 st.subheader("Illuvium token vesting schedule")
                 df_ilv, f, f2 = ilv()
                 current_token_amount = df_ilv['current_token_amount'].iloc[-1]
+                current_roi = df_ilv['current_roi'].iloc[-1]
+                current_usd_amount = df_ilv['current_usd_amount'].iloc[-1]
+                next_vesting_date = df_ilv['next_vesting_date'].iloc[-1]
+                end_of_vesting = df_ilv['end_of_vesting'].iloc[-1]
+                unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3, col4, col5, col6 = st.columns(6)
                 col1.metric("**Token Amount**", f"{current_token_amount} ILV")
                 col2.metric("**ROI**", f"{current_token_amount} %")
@@ -2793,15 +2798,15 @@ elif authentication_status:
                 col5.metric("**End of vesting**", f"{end_of_vesting}")
                 col6.metric("**Unlocked**", f"{unlocked_pct_tokens} %")
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
-                current_roi = df_ilv['current_roi'].iloc[-1]
+    
                 st.markdown(f"**Current ROI in %:** {current_roi}")
-                current_usd_amount = df_ilv['current_usd_amount'].iloc[-1]
+              
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
-                next_vesting_date = df_ilv['next_vesting_date'].iloc[-1]
+                
                 st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = df_ilv['end_of_vesting'].iloc[-1]
+                
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
-                unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
+                
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
                 st.pyplot(f)
                 st.pyplot(f2)
