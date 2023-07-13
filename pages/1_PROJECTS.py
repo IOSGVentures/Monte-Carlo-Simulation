@@ -2783,7 +2783,7 @@ elif authentication_status:
     """
 <style>
 [data-testid="stMetricLabel"] {
-    font-size: 100px;
+    font-size: 500px;
 }
 </style>
 """,
