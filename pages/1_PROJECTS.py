@@ -2776,9 +2776,19 @@ elif authentication_status:
                     if checkbox_value:
                         selected_projects.append(checkbox_labels[index])
         submitted = st.form_submit_button('Submit')
-
+    
     #if submitted:
         # Display charts for selected projects
+        st.markdown(
+    """
+<style>
+[data-testid="stMetricLabel"] {
+    font-size: 100px;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
         for project in selected_projects:
 
             st.header(f"Here's Token Vesting Schedule for {project.capitalize()}!")
