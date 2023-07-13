@@ -20,6 +20,7 @@ import yaml
 from yaml.loader import SafeLoader
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
+from numerize.numerize import numerize
 
 st.set_page_config(page_title="Invested Projects Overview", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
@@ -2791,23 +2792,23 @@ elif authentication_status:
                 end_of_vesting = df_ilv['end_of_vesting'].iloc[-1]
                 unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3, col4, col5, col6 = st.columns(6)
-                col1.metric("**Token Amount**", f"{current_token_amount} ILV")
-                col2.metric("**ROI**", f"{current_token_amount} %")
-                col3.metric("**USD amount**", f"{current_usd_amount} $")
-                col4.metric("**Next vesting date**", f"{next_vesting_date}")
-                col5.metric("**End of vesting**", f"{end_of_vesting}")
-                col6.metric("**Unlocked**", f"{unlocked_pct_tokens} %")
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} ILV")
+                col2.metric("**ROI**", f"{numerize(current_roi)} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
+                col4.metric("**Next vesting date**", f"{numerize(next_vesting_date)}")
+                col5.metric("**End of vesting**", f"{numerize(end_of_vesting)}")
+                col6.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
+                st.markdown(f"**Current Token Amount:** {numerize(current_token_amount)}")
     
-                st.markdown(f"**Current ROI in %:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {numerize(current_roi)}")
               
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                st.markdown(f"**Current USD amount:** {numerize(current_usd_amount)}")
                 
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                st.markdown(f"**Next vesting date:** {numerize(next_vesting_date)}")
                 
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                st.markdown(f"**End of vesting:** {numerize(end_of_vesting)}")
                 
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.markdown(f"**Unlocked % of Tokens:** {numerize(unlocked_pct_tokens)}")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Arweave':
