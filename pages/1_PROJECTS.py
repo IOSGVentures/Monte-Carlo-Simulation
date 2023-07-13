@@ -2795,8 +2795,8 @@ elif authentication_status:
                 col1.metric("**Token Amount**", f"{numerize(current_token_amount)} ILV")
                 col2.metric("**ROI**", f"{numerize(current_roi)} %")
                 col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
-                col4.metric("**Next vesting date**", f"{numerize(next_vesting_date)}")
-                col5.metric("**End of vesting**", f"{numerize(end_of_vesting)}")
+                col4.metric("**Next vesting date**", f"{next_vesting_date}")
+                col5.metric("**End of vesting**", f"{end_of_vesting}")
                 col6.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.markdown(f"**Current Token Amount:** {numerize(current_token_amount)}")
     
