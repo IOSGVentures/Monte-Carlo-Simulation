@@ -2783,7 +2783,6 @@ elif authentication_status:
 
             st.header(f"Here's Token Vesting Schedule for {project.capitalize()}!")
             if project=='Illuvium':
-                st.subheader("Illuvium token vesting schedule")
                 df_ilv, f, f2 = ilv()
                 current_token_amount = df_ilv['current_token_amount'].iloc[-1]
                 current_roi = df_ilv['current_roi'].iloc[-1]
@@ -2796,19 +2795,7 @@ elif authentication_status:
                 col2.metric("**ROI**", f"{numerize(current_roi)} %")
                 col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 col4.metric("**Next vesting date**", f"{next_vesting_date}")
-                col5.metric("**End of vesting**", f"{end_of_vesting}")
                 col6.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
-                st.markdown(f"**Current Token Amount:** {numerize(current_token_amount)}")
-    
-                st.markdown(f"**Current ROI in %:** {numerize(current_roi)}")
-              
-                st.markdown(f"**Current USD amount:** {numerize(current_usd_amount)}")
-                
-                st.markdown(f"**Next vesting date:** {numerize(next_vesting_date)}")
-                
-                st.markdown(f"**End of vesting:** {numerize(end_of_vesting)}")
-                
-                st.markdown(f"**Unlocked % of Tokens:** {numerize(unlocked_pct_tokens)}")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Arweave':
