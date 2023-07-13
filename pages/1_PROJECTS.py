@@ -2792,7 +2792,7 @@ elif authentication_status:
                 unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3, col4 = st.columns(4)
                 col1.metric("**Token Amount**", f"{numerize(current_token_amount)} ILV")
-                col2.metric("**ROI**", f"{numerize(current_roi)} %")
+                col2.metric("**ROI**", f"{current_roi} %")
                 col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 col4.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
