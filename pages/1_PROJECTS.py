@@ -2943,7 +2943,7 @@ elif authentication_status:
                 col2.metric("**ROI**", f"{current_roi} %")
                 col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3 = st.columns(3)
                 col1.metric("**Next vesting date**", f"{next_vesting_date}")
@@ -3016,7 +3016,7 @@ elif authentication_status:
                 col2.metric("**ROI**", f"{current_roi} %")
                 col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3 = st.columns(3)
                 col1.metric("**Next vesting date**", f"{next_vesting_date}")
@@ -3034,7 +3034,7 @@ elif authentication_status:
                 col2.metric("**ROI**", f"{current_roi} %")
                 col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3 = st.columns(3)
                 col1.metric("**Next vesting date**", f"{next_vesting_date}")
