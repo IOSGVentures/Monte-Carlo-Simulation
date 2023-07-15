@@ -1699,8 +1699,8 @@ elif authentication_status:
             unlocked_pct_tokens += vesting_schedule.get(date, 0)  # Add the percentage for the current date
             unlocked_tokens += (total_tokens_number * vesting_schedule.get(date, 0) / 100)
             df_gxy.loc[date, 'current_token_amount'] = round(unlocked_tokens, 2)
-            df_gxy.loc[date, 'current_roi'] = 'N/A'
-            df_gxy.loc[date, 'current_usd_amount'] = 'N/A'
+            df_gxy.loc[date, 'current_roi'] = round(current_roi, 2)
+            df_gxy.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_gxy.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_gxy.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
             df_gxy.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
