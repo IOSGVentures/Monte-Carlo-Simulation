@@ -1668,7 +1668,7 @@ elif authentication_status:
 
     def gxy():
         token_ticker = "GXY"
-        coingecko_id = "galxe"
+        coingecko_id = "project-galaxy"
         entry_price = 0.075
         vesting_schedule = {pd.Timestamp('2022-02-17'):12,pd.Timestamp('2022-05-17'):11,pd.Timestamp('2022-08-17'):11,pd.Timestamp('2022-11-17'):11,
                             pd.Timestamp('2023-02-17'):11,pd.Timestamp('2023-05-17'):11,pd.Timestamp('2023-08-17'):11,pd.Timestamp('2023-11-17'):11,
