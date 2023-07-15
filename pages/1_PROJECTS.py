@@ -1722,12 +1722,24 @@ elif authentication_status:
         ax.set_xlabel('Date')
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
-        
-        return df_gxy, fig
+
+        fig2, ax = plt.subplots()
+        ax.plot(df_gxy.index, df_gxy['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        return df_gxy, fig, fig2
 
     def kyve():
         token_ticker = "KYVE"
-        coingecko_id = "Kyve network"
+        coingecko_id = "kyve-network"
         entry_price = 0.1
         vesting_schedule = {pd.Timestamp('2022-12-31'):10,pd.Timestamp('2023-01-31'):5,pd.Timestamp('2023-02-28'):5,pd.Timestamp('2023-03-31'):5,pd.Timestamp('2023-04-30'):5
                             ,pd.Timestamp('2023-05-31'):5,pd.Timestamp('2023-06-30'):5,pd.Timestamp('2023-07-31'):5,pd.Timestamp('2023-08-31'):5,pd.Timestamp('2023-09-30'):5
@@ -1737,13 +1749,13 @@ elif authentication_status:
         total_tokens_number = 1333333.33 
 
         # call coingecko api to get real-time price
-        #url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
-        #response = requests.get(url)
-        #price = response.json()[coingecko_id]["usd"]
+        url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        response = requests.get(url)
+        price = response.json()[coingecko_id]["usd"]
 
         # calculate current ROI
-        #current_price = price
-        #current_roi = (current_price - entry_price) / entry_price * 100
+        current_price = price
+        current_roi = (current_price - entry_price) / entry_price * 100
 
         # Create a list of dates from the first date in the vesting schedule until today
         dates = pd.date_range(start=min(vesting_schedule.keys()), end=pd.Timestamp.today(), freq='D')
@@ -1759,8 +1771,8 @@ elif authentication_status:
             unlocked_pct_tokens += vesting_schedule.get(date, 0)  # Add the percentage for the current date
             unlocked_tokens += (total_tokens_number * vesting_schedule.get(date, 0) / 100)
             df_kyve.loc[date, 'current_token_amount'] = round(unlocked_tokens, 2)
-            df_kyve.loc[date, 'current_roi'] = 'N/A'
-            df_kyve.loc[date, 'current_usd_amount'] = 'N/A'
+            df_kyve.loc[date, 'current_roi'] = round(current_roi, 2)
+            df_kyve.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_kyve.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_kyve.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
             df_kyve.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
@@ -1782,8 +1794,20 @@ elif authentication_status:
         ax.set_xlabel('Date')
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
-        
-        return df_kyve, fig
+
+        fig2, ax = plt.subplots()
+        ax.plot(df_kyve.index, df_kyve['ROI'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('ROI in %')
+        ax.set_title('ROI in %')
+        return df_kyve, fig, fig2
 
     def mina():
         token_ticker = "MINA"
@@ -2071,8 +2095,8 @@ elif authentication_status:
         #price = response.json()[coingecko_id]["usd"]
 
         # calculate current ROI
-        current_price = 0.036
-        current_roi = (current_price - entry_price) / entry_price * 100
+        #current_price = 0.036
+        #current_roi = (current_price - entry_price) / entry_price * 100
 
         # Create a list of dates from the first date in the vesting schedule until today
         dates = pd.date_range(start=min(vesting_schedule.keys()), end=pd.Timestamp.today(), freq='D')
@@ -2088,8 +2112,8 @@ elif authentication_status:
             unlocked_pct_tokens += vesting_schedule.get(date, 0)  # Add the percentage for the current date
             unlocked_tokens += (total_tokens_number * vesting_schedule.get(date, 0) / 100)
             df_stark.loc[date, 'current_token_amount'] = round(unlocked_tokens, 2)
-            df_stark.loc[date, 'current_roi'] = round(current_roi, 2)
-            df_stark.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
+            df_stark.loc[date, 'current_roi'] = 'N/A'
+            df_stark.loc[date, 'current_usd_amount'] = 'N/A'
             df_stark.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_stark.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
             df_stark.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
@@ -2788,7 +2812,7 @@ elif authentication_status:
                 current_roi = df_ilv['current_roi'].iloc[-1]
                 current_usd_amount = df_ilv['current_usd_amount'].iloc[-1]
                 next_vesting_date = df_ilv['next_vesting_date'].iloc[-1]
-                end_of_vesting = df_ilv['end_of_vesting'].iloc[-1]
+                end_of_vesting = df_ilv['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3, col4 = st.columns(4)
                 col1.metric("**Token Amount**", f"{numerize(current_token_amount)} ILV")
@@ -2925,7 +2949,7 @@ elif authentication_status:
                 current_roi = d['current_roi'].iloc[-1]
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 col1, col2, col3, col4 = st.columns(4)
                 col1.metric("**Token Amount**", f"{numerize(current_token_amount)} IZI")
@@ -3043,220 +3067,230 @@ elif authentication_status:
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Galaxy':
-                d,f = gxy()
+                d,f,f2 = gxy()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} GAL")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
-                
+                st.pyplot(f2)
             if project=='Kyve network':
-                st.subheader("Kyve network token vesting schedule")
-                d,f = kyve()
+                d,f,f2 = kyve()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} KYVE")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
-              
+                st.pyplot(f2) 
             if project=='Mina':
-                st.subheader("Mina token vesting schedule")
                 d,f,f2 = mina()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} MINA")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Meta pool':
-                st.subheader("Meta pool token vesting schedule")
                 d,f,f2 = meta()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} META")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Cypher MOD':
-                st.subheader("Cypher MOD token vesting schedule")
                 d,f,f2 = cpr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} CPR")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
-            if project=='Starkware':
-                st.subheader("Starkware token vesting schedule")
+            if project=='Starkware':  
                 d,f = stark()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
-                current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
-                current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3, col4 = st.columns(4)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} STRK")
+                col2.metric("**Next vesting date**", f"{next_vesting_date}")
+                col3.metric("**End of vesting**", f"{end_of_vesting}")
+                col4.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
             if project=='Aurora':
-                st.subheader("Aurora token vesting schedule")
                 d,f,f2 = aurora()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} AURORA")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Daosquare':
-                st.subheader("Daosquare token vesting schedule")
                 d,f,f2 = rice()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} RICE")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Burrow':
-                st.subheader("Burrow token vesting schedule")
                 d,f,f2 = brrr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} BRRR")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Gitcoin':
-                st.subheader("Gitcoin token vesting schedule")
                 d,f,f2 = gtc()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} GTC")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Treasure DAO':
-                st.subheader("Treasure DAO token vesting schedule")
                 d,f,f2 = magic()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} MAGIC")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Alethea':
-                st.subheader("Alethea MOD token vesting schedule")
                 d,f,f2 = ali()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} ALI")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Perion':
-                st.subheader("Perion MOD token vesting schedule")
                 d,f,f2 = perc()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
-                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Token Amount**", f"{numerize(current_token_amount)} PERC")
+                col2.metric("**ROI**", f"{current_roi} %")
+                col3.metric("**USD amount**", f"{numerize(current_usd_amount)} $")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
-                st.markdown(f"**Next vesting date:** {next_vesting_date}")
-                end_of_vesting = d['end_of_vesting'].iloc[-1]
-                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1].date()
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
-                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("**Next vesting date**", f"{next_vesting_date}")
+                col2.metric("**End of vesting**", f"{end_of_vesting} ")
+                col3.metric("**Unlocked**", f"{numerize(unlocked_pct_tokens)} %")
                 st.pyplot(f)
                 st.pyplot(f2)
