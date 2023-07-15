@@ -1677,13 +1677,13 @@ elif authentication_status:
         total_tokens_number = 1333333.33 
 
         # call coingecko api to get real-time price
-        #url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
-        #response = requests.get(url)
-        #price = response.json()[coingecko_id]["usd"]
+        url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+        response = requests.get(url)
+        price = response.json()[coingecko_id]["usd"]
 
         # calculate current ROI
-        #current_price = price
-        #current_roi = (current_price - entry_price) / entry_price * 100
+        current_price = price
+        current_roi = (current_price - entry_price) / entry_price * 100
 
         # Create a list of dates from the first date in the vesting schedule until today
         dates = pd.date_range(start=min(vesting_schedule.keys()), end=pd.Timestamp.today(), freq='D')
