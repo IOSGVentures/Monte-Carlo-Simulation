@@ -1668,7 +1668,7 @@ elif authentication_status:
 
     def gxy():
         token_ticker = "GXY"
-        coingecko_id = "galaxy"
+        coingecko_id = "galxe"
         entry_price = 0.075
         vesting_schedule = {pd.Timestamp('2022-02-17'):12,pd.Timestamp('2022-05-17'):11,pd.Timestamp('2022-08-17'):11,pd.Timestamp('2022-11-17'):11,
                             pd.Timestamp('2023-02-17'):11,pd.Timestamp('2023-05-17'):11,pd.Timestamp('2023-08-17'):11,pd.Timestamp('2023-11-17'):11,
@@ -3043,10 +3043,8 @@ elif authentication_status:
                 st.pyplot(f)
                 st.pyplot(f2)
             if project=='Galaxy':
-                st.subheader("Galaxy token vesting schedule")
                 d,f = gxy()
                 current_token_amount = d['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
                 st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
