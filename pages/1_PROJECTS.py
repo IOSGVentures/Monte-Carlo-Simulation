@@ -2615,7 +2615,7 @@ elif authentication_status:
 
 
         # calculate current ROI
-        current_price = 1.05
+        current_price = price
         current_roi = (current_price - entry_price) / entry_price * 100
 
         # Create a list of dates from the first date in the vesting schedule until today
