@@ -172,16 +172,15 @@ elif authentication_status:
         project_id = st.text_input('Enter the project ID from Token Terminal',key='1')
         sigma_btc = st.number_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2')
         mean = st.number_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3')
+        period = st.number_input('Enter the number of days',key='4')
         list = []
         c= 10
         while  c > 0:
-            x = st.number_input('Enter the price level',key='4')
+            x = st.number_input('Enter the price level',key=str(c+4))
             list.append(x)
-            print(x)
             c = c - 1
         list
         price_levels = list
-        period = st.number_input('Enter the number of days',key='5')
         
         submitted = st.form_submit_button("Submit")
     
