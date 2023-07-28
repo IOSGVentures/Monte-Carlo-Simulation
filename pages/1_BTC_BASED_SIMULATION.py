@@ -176,7 +176,7 @@ elif authentication_status:
         price_levels = [int(s) for s in price_levels_str.split(',')]
         period = st.number_input('Enter the number of days',key='5')
         
-        submitted = st.form_submit_button("Submit")
+        submitted = st.form_submit_button('Submit')
     
         if submitted:
             st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
