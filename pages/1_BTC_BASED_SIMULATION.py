@@ -170,8 +170,8 @@ elif authentication_status:
         return table.to_string(index=False),fig
     with st.form("my_form"):
         project_id = st.text_input('Enter the project ID from Token Terminal',key='1')
-        sigma_btc = int(st.text_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2'))
-        mean = int(st.text_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3'))
+        sigma_btc = float(st.text_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2'))
+        mean = float(st.text_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3'))
         price_levels = list(st.text_input('Enter the price levels',key='4'))
         period = int(st.text_input('Enter the number of days',key='5'))
         
