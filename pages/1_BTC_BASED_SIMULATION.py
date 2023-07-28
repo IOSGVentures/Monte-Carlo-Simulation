@@ -173,7 +173,7 @@ elif authentication_status:
         sigma_btc = st.text_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2')
         mean = st.text_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3')
         price_levels = st.text_input('Enter the price levels',key='4')
-        period = st.text_input('Enter the price levels',key='5')
+        period = st.text_input('Enter the number of days',key='5')
         
         submitted = st.form_submit_button("Submit")
     
