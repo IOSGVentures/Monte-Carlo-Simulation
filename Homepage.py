@@ -21,7 +21,7 @@ from yaml.loader import SafeLoader
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 
-st.set_page_config(page_title="IOSG Token Vesting Management", page_icon="🧐", layout="wide")
+st.set_page_config(page_title="Monte Carlo Simulation", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
@@ -46,12 +46,9 @@ elif authentication_status:
     authenticator.logout("Logout", "sidebar")
     
     # ---- MAINPAGE ----
-    st.title(":bar_chart: IOSG Token Vesting Management")
+    st.title(":bar_chart: Monte Carlo Simulation")
     st.markdown("##")
-    st.write('Welcome to IOSG token vesting management web application!')
-    st.write('At this Application, we have a way to easily manage our acquired tokens.')
-    st.write('Our intuitive and user-friendly platform empowers you to effortlessly oversee all our invested projects in one centralized location, providing you with key parameters at your fingertips.') 
-    st.write('With our "PROJECTS" page dedicated to displaying comprehensive information about all our invested projects, you can easily keep track of important details such as project names, token quantities, vesting periods, ROI and much more.')
-    st.write('This overview ensures that you have a clear understanding of our token allocation, enabling you to make informed decisions and effectively manage our portfolio.')
-    st.write('"NEXT MONTH" is designed specifically for token vesting. This page allows you to efficiently handle the process for the upcoming month.')
+    st.write('Welcome to Monte Carlo Simulation web application!')
+    st.write('At this Application, We can easily simulate the price movement of any token in an arbitrary time frame.')
+    st.write('And we can calculate the probability that the price of that token will be at a certain level in the selected time frame.')
     
