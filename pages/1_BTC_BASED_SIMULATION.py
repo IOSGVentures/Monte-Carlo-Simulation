@@ -175,10 +175,8 @@ elif authentication_status:
         price_levels_str = st.text_input('Enter the price levels',key='4')
         price_levels = [int(s) for s in price_levels_str.split(',')]
         period = st.number_input('Enter the number of days',key='5')
-        
-        submitted = st.form_submit_button("Submit")
     
-        if submitted:
+        if st.form_submit_button("Submit"):
             st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
             table, f = mcs_btc(project_id,sigma_btc,mean,price_levels)
             st.dataframe(table, use_container_width=True)
