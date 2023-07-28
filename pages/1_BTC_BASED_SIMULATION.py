@@ -168,18 +168,18 @@ elif authentication_status:
         ax.set_title(f'Monte Carlo Simulation {project_id} price 1 year from now')
         print(table.to_string(index=False))
         return table.to_string(index=False),fig
+    with st.form("my_form"):
+        project_id = st.text_input('Enter the project ID from Token Terminal',key='1')
+        sigma_btc = st.text_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2')
+        mean = st.text_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3')
+        price_levels = st.text_input('Enter the price levels',key='4')
+        period = st.text_input('Enter the price levels',key='5')
+        
+        submitted = st.form_submit_button("Submit")
     
-    project_id = st.text_input('Enter the project ID from Token Terminal',key='1')
-    sigma_btc = st.text_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2')
-    mean = st.text_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3')
-    price_levels = st.text_input('Enter the price levels',key='4')
-    period = st.text_input('Enter the price levels',key='5')
-    
-    submitted = st.form_submit_button('Submit')
-    
-    if submitted:
-        st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
-        table, f = mcs_btc(project_id,sigma_btc,mean,price_levels)
-        st.dataframe(table, use_container_width=True)
-        st.pyplot(f)
+        if submitted:
+            st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
+            table, f = mcs_btc(project_id,sigma_btc,mean,price_levels)
+            st.dataframe(table, use_container_width=True)
+            st.pyplot(f)
             
