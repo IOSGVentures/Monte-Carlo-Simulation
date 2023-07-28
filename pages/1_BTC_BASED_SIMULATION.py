@@ -168,7 +168,7 @@ elif authentication_status:
         ax.set_title(f'Monte Carlo Simulation {project_id} price 1 year from now')
         print(table.to_string(index=False))
         return table.to_string(index=False),fig
-    with st.form("my_form"):
+    with st.form("my_form",clear_on_submit=False):
         project_id = st.text_input('Enter the project ID from Token Terminal',key='1')
         sigma_btc = st.number_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2')
         mean = st.number_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3')
@@ -176,7 +176,7 @@ elif authentication_status:
         price_levels = [int(s) for s in price_levels_str.split(',')]
         period = st.number_input('Enter the number of days',key='5')
         
-        submitted = st.form_submit_button('Submit')
+        submitted = st.form_submit_button("Submit")
     
         if submitted:
             st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
