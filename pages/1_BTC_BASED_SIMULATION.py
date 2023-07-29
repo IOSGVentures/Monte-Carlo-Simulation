@@ -50,7 +50,7 @@ elif authentication_status:
     # ---- MAINPAGE ----
     st.title(":earth_asia: MC Simulation using BTC IV")
     st.markdown("##")
-    def mcs_btc(project_id,sigma_btc,mean,price_levels):
+    def mcs_btc(project_id,sigma_btc,mean):
         def get_data(data):
             date = []
             price = []
@@ -103,7 +103,7 @@ elif authentication_status:
         
         headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
         
-        url = "https://api.tokenterminal.com/v2/projects/uniswap/metrics?metric_ids=price"
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=price"
         response = requests.get(url, headers=headers)
         data_shows = json.loads(response.text)
         data = data_shows['data']
@@ -119,7 +119,19 @@ elif authentication_status:
         mean = mean
         delta_t = 1/365
         num_periods = 365
-
+        price_levels = [
+        int(round(price0 - 0.2 * price0)),  # current_price - 20%
+        int(round(price0 - 0.4 * price0)),  # current_price - 40%
+        int(round(price0 - 0.6 * price0)),  # current_price - 60%
+        int(round(price0 - 0.8 * price0)),  # current_price - 80%
+        int(round(price0)),                 # current_price (100%)
+        int(round(price0 + 0.2 * price0)),  # current_price + 20%
+        int(round(price0 + 0.4 * price0)),   # current_price + 40%
+        int(round(price0 + 0.6 * price0)),  # current_price + 60%
+        int(round(price0 + 0.8 * price0)),  # current_price + 80%
+        int(round(price0 + price0)),  # current_price +100%
+        int(round(price0 + 2 * price0))   # current_price + 200%
+    ]
 
         def model(price0=price0, sigma=sigma, mean=mean, delta_t=delta_t, num_periods=num_periods):
 
@@ -172,9 +184,7 @@ elif authentication_status:
     project_id = st.text_input('Enter the project ID from Token Terminal',key='1')
     sigma_btc = st.number_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2')
     mean = st.number_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3')
-    price_levels_str = st.number_input('Enter the price levels',key='4')
-    price_levels = [int(s) for s in price_levels_str.split(',')]
-    period = st.number_input('Enter the number of days',key='5')
+    period = st.number_input('Enter the number of days',key='4')
     
    # if st.form_submit_button("Submit"):
     st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
