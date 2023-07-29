@@ -178,7 +178,7 @@ elif authentication_status:
 
         ax.plot(result)
         ax.set_title(f'Monte Carlo Simulation {project_id} price 1 year from now')
-        return table.to_string(index=False),fig
+        return table,fig
 #with st.form("my_form",clear_on_submit=False):
     project_id = st.text_input('Enter the project ID from Token Terminal',key='1')
     sigma_btc = st.number_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2',value=0.5)
