@@ -182,13 +182,13 @@ elif authentication_status:
         return table.to_string(index=False),fig
 #with st.form("my_form",clear_on_submit=False):
     project_id = st.text_input('Enter the project ID from Token Terminal',key='1')
-    sigma_btc = st.number_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2')
-    mean = st.number_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3')
-    period = st.number_input('Enter the number of days',key='4')
+    sigma_btc = st.number_input('Enter the sigma-implied volatility from in the money option -  deribit',key='2',defoult=0.5)
+    mean = st.number_input('Enter the mean-risk-neutral assumption underpinning option pricing models',key='3',defoult=0.05)
+    period = st.number_input('Enter the number of days',key='4',defoult=365)
     
    # if st.form_submit_button("Submit"):
     st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
-    table, f = mcs_btc(project_id,sigma_btc,mean,price_levels)
+    table, f = mcs_btc(project_id,sigma_btc,mean)
     st.dataframe(table, use_container_width=True)
     st.pyplot(f)
             
