@@ -74,7 +74,7 @@ elif authentication_status:
         price_pr = d1['Return']
         realized_volatility_pr = np.std(price_pr[-365:]) * np.sqrt(365) * 100
         
-        url3 = "https://api.tokenterminal.com/v2/projects/bitcoin/metrics?metric_ids=price"
+        url3 = "https://api.tokenterminal.com/v2/projects/ethereum/metrics?metric_ids=price"
         headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
         response3 = requests.get(url3, headers=headers)
         data_shows3 = json.loads(response3.text)
