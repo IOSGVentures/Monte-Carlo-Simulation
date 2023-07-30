@@ -186,12 +186,6 @@ project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
 sigma_btc = st.number_input('Enter the sigma-implied volatility from in the money option - deribit', key='2', value=0.5)
 mean = st.number_input('Enter the mean-risk-neutral assumption underpinning option pricing models', key='3', value=0.05)
 period = st.number_input('Enter the number of days', key='4', value=365)
-
-project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
-sigma_btc = st.number_input('Enter the sigma-implied volatility from in the money option - deribit', key='2', value=0.5)
-mean = st.number_input('Enter the mean-risk-neutral assumption underpinning option pricing models', key='3', value=0.05)
-period = st.number_input('Enter the number of days', key='4', value=365)
-
 # Wrap the code within an st.form() block
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
