@@ -51,4 +51,5 @@ elif authentication_status:
     st.write('Welcome to Monte Carlo Simulation web application!')
     st.write('At this Application, We can easily simulate the price movement of any token in an arbitrary time frame.')
     st.write('And we can calculate the probability that the price of that token will be at a certain level in the selected time frame.')
+    st.write('We use Geometric Brownian Motion (assumption of the Black-Scholes model) and Monte Carlo simulation to obtain probabilities.')
     
