@@ -179,7 +179,7 @@ elif authentication_status:
       ax.plot(result)
       ax.set_title(f'Monte Carlo Simulation {project_id} price {period_in_days} days from now')
       #st.write(table.to_string(index=False))
-      return table.to_string(index=False),fig
+      return table,fig
 #with st.form("my_form",clear_on_submit=False):
     
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
