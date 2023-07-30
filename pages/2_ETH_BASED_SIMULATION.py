@@ -120,17 +120,24 @@ elif authentication_status:
       delta_t = 1/365
       num_periods = period_in_days
       price_levels = [
-            int(round(price0 - 0.2 * price0)),  # current_price - 20%
-            int(round(price0 - 0.4 * price0)),  # current_price - 40%
+            int(round(price0 - 0.9 * price0)),  # current_price - 90%
+            int(round(price0 - 0.7 * price0)),  # current_price - 70%
             int(round(price0 - 0.6 * price0)),  # current_price - 60%
-            int(round(price0 - 0.8 * price0)),  # current_price - 80%
-            int(round(price0)),                 # current_price (100%)
+            int(round(price0 - 0.5 * price0)),  # current_price - 50%
+            int(round(price0 - 0.4 * price0)),  # current_price - 40%
+            int(round(price0 - 0.3 * price0)),  # current_price - 30%
+            int(round(price0 - 0.2 * price0)),  # current_price - 20%
+            int(round(price0)),                 # current_price
             int(round(price0 + 0.2 * price0)),  # current_price + 20%
             int(round(price0 + 0.4 * price0)),   # current_price + 40%
             int(round(price0 + 0.6 * price0)),  # current_price + 60%
             int(round(price0 + 0.8 * price0)),  # current_price + 80%
-            int(round(price0 + price0)),  # current_price +100%
-            int(round(price0 + 2 * price0))   # current_price + 200%
+            int(round(price0 + 2 * price0)),   # current_price + 200%
+            int(round(price0 + 3 * price0)),   # current_price + 300%
+            int(round(price0 + 4 * price0)),   # current_price + 400%
+            int(round(price0 + 6 * price0))   # current_price + 600%
+            int(round(price0 + 10 * price0))   # current_price + 1000%
+            int(round(price0 + 15 * price0))   # current_price + 1500%
         ]
     
       def model(price0=price0, sigma=sigma, mean=mean, delta_t=delta_t, num_periods=num_periods):
