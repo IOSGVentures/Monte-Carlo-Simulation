@@ -120,8 +120,8 @@ elif authentication_status:
       delta_t = 1/365
       num_periods = period_in_days
       price_levels = [
-            int(round(price0 - 0.9 * price0)),  # current_price - 90%
-            int(round(price0 - 0.7 * price0)),  # current_price - 70%
+            float(round(price0 - 0.9 * price0),2),  # current_price - 90%
+            float(round(price0 - 0.7 * price0),2),  # current_price - 70%
             int(round(price0 - 0.6 * price0)),  # current_price - 60%
             int(round(price0 - 0.5 * price0)),  # current_price - 50%
             int(round(price0 - 0.4 * price0)),  # current_price - 40%
