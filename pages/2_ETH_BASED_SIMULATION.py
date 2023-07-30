@@ -178,7 +178,7 @@ elif authentication_status:
     
       ax.plot(result)
       ax.set_title(f'Monte Carlo Simulation {project_id} price {period_in_days} days from now')
-      st.write(table.to_string(index=False))
+      #st.write(table.to_string(index=False))
       return table.to_string(index=False),fig
 #with st.form("my_form",clear_on_submit=False):
     project_id = st.text_input('Enter the project ID from Token Terminal',key='1')
@@ -189,6 +189,6 @@ elif authentication_status:
    # if st.form_submit_button("Submit"):
     st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
     table, f = mcs_eth_2(project_id,sigma_btc,mean,period)
-    #st.dataframe(table, use_container_width=True)
+    st.write(table, use_container_width=True)
     st.pyplot(f)
             
