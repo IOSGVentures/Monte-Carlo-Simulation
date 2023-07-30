@@ -197,7 +197,7 @@ period = st.number_input('Enter the number of days', key='4', value=365)
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
         st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
-        table, f = mcs_eth_2(project_id, sigma_btc, mean, period)
+        table, f = mcs_btc_2(project_id, sigma_btc, mean, period)
 
         if not isinstance(table, pd.DataFrame):
             st.error("Error: The 'table' variable is not a pandas DataFrame.")
