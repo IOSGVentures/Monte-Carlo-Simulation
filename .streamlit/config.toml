@@ -1,8 +1,8 @@
 [theme]
-primaryColor = "#E694FF"
+primaryColor = "#ffc266"
 
 # Background color for the main content area.
-backgroundColor = "#66ff33"
+backgroundColor = "#d9ffcc"
 
 # Background color used for the sidebar and most interactive widgets.
 secondaryBackgroundColor = "#a6ff4d"
