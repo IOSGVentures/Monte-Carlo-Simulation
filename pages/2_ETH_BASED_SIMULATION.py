@@ -136,7 +136,7 @@ elif authentication_status:
             float(round(price0 + 3 * price0),2)),   # current_price + 300%
             float(round(price0 + 4 * price0),2)),   # current_price + 400%
             float(round(price0 + 6 * price0),2)),   # current_price + 600%
-            float(round(price0 + 10 * price0),2),   # current_price + 1000%
+            float(round(price0 + 10 * price0),2)),   # current_price + 1000%
             float(round(price0 + 15 * price0),2))   # current_price + 1500%
         ]
     
