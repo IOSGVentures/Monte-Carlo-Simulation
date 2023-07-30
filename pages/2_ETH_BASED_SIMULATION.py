@@ -188,7 +188,7 @@ elif authentication_status:
     
    # if st.form_submit_button("Submit"):
     st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
-    table, f = mcs_btc(project_id,sigma_btc,mean)
+    table, f = mcs_eth2(project_id,sigma_btc,mean)
     #st.dataframe(table, use_container_width=True)
     st.pyplot(f)
             
