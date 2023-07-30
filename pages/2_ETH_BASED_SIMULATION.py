@@ -187,13 +187,20 @@ sigma_btc = st.number_input('Enter the sigma-implied volatility from in the mone
 mean = st.number_input('Enter the mean-risk-neutral assumption underpinning option pricing models', key='3', value=0.05)
 period = st.number_input('Enter the number of days', key='4', value=365)
 
-if st.form_submit_button("Submit"):
-    st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
-    table, f = mcs_eth_2(project_id, sigma_btc, mean, period)
+project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
+sigma_btc = st.number_input('Enter the sigma-implied volatility from in the money option - deribit', key='2', value=0.5)
+mean = st.number_input('Enter the mean-risk-neutral assumption underpinning option pricing models', key='3', value=0.05)
+period = st.number_input('Enter the number of days', key='4', value=365)
 
-    if not isinstance(table, pd.DataFrame):
-        st.error("Error: The 'table' variable is not a pandas DataFrame.")
-    else:
-        st.dataframe(table, use_container_width=True)
-        st.pyplot(f)
+# Wrap the code within an st.form() block
+with st.form("monte_carlo_form"):
+    if st.form_submit_button("Submit"):
+        st.header(f"Here's Monte Carlo Simulation for {project_id.capitalize()}!")
+        table, f = mcs_eth_2(project_id, sigma_btc, mean, period)
+
+        if not isinstance(table, pd.DataFrame):
+            st.error("Error: The 'table' variable is not a pandas DataFrame.")
+        else:
+            st.dataframe(table, use_container_width=True)
+            st.pyplot(f)
             
