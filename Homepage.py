@@ -52,7 +52,7 @@ elif authentication_status:
     st.write('At this Application, We can easily simulate the price movement of any token in an arbitrary time frame.')
     st.write('And we can calculate the probability that the price of that token will be at a certain level in the selected time frame.')
     st.write('We use Geometric Brownian Motion (assumption of the Black-Scholes model) and Monte Carlo simulation to obtain probabilities.')
-    st.write('Parameters that were used for the simulation
+    st.write('Parameters that were used for the simulation')
 
     st.write('sigma (implied volatility from in the money option - (https://www.deribit.com/options/ETH)')
     st.write('mean (here we leverage risk-neutral assumption underpinning option pricing models - (https://ycharts.com/indicators/1_year_treasury_rate)')
