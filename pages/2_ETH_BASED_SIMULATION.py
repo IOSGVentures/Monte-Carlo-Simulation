@@ -22,7 +22,7 @@ from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 from numerize.numerize import numerize
 
-st.set_page_config(page_title="MC Simulation using BTC IV", page_icon="🧐", layout="wide")
+st.set_page_config(page_title="MC Simulation using ETH IV", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
@@ -48,7 +48,7 @@ elif authentication_status:
     
     
     # ---- MAINPAGE ----
-    st.title(":earth_asia: MC Simulation using BTC IV")
+    st.title(":earth_asia: MC Simulation using ETH IV")
     st.markdown("##")
     def mcs_eth_2(project_id,sigma_eth,mean,period_in_days):
       def get_data(data):
