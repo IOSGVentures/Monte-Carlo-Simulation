@@ -48,13 +48,13 @@ elif authentication_status:
     # ---- MAINPAGE ----
     st.title(":bar_chart: Monte Carlo Simulation")
     st.markdown("##")
-    st.write('Welcome to Monte Carlo Simulation web application!')
-    st.write('At this Application, We can easily simulate the price movement of any token in an arbitrary time frame.')
-    st.write('And we can calculate the probability that the price of that token will be at a certain level in the selected time frame.')
+    st.write('Welcome to Secondary Market Analisys web application!')
+    st.write('At this Application, We can easily analyse any token in an arbitrary time frame.')
+    st.write('For Monte Carlo simulation it is necessary to enter certain parameters (IV, period and mean)')
     st.write('We use Geometric Brownian Motion (assumption of the Black-Scholes model) and Monte Carlo simulation to obtain probabilities.')
     st.write('Parameters that were used for the simulation')
-
     st.write('sigma (implied volatility from in the money option - (https://www.deribit.com/options/ETH)')
     st.write('mean (here we leverage risk-neutral assumption underpinning option pricing models - (https://ycharts.com/indicators/1_year_treasury_rate)')
     st.write('period (default - one year from now)')
+    st.write('The data used in the application is from the Token terminal API, so it is necessary to enter the correct names of the projects in accordance with the name on their website.')
     
