@@ -60,17 +60,16 @@ elif authentication_status:
           date = []
           price = []
           market_cap_fully_diluted = []
+          market_cap_cirulating = []
           token_trading_volume = []
           tokenholders = []
-          net_deposits = []
+          
           tvl = []
-          trading_volume = []
+          
           fees = []
-          treasury = []
-          treasury_net = []
+          revenue = []
           user_dau = []
-          user_wau = []
-          user_mau = []
+          
           active_developers = []
           code_commits = []
     
@@ -78,21 +77,21 @@ elif authentication_status:
               date.append(pd.to_datetime((data[i]['timestamp'])))
               price.append(data[i]['price'])
               market_cap_fully_diluted.append(data[i]['market_cap_fully_diluted'])
+              market_cap_fully_cirulating.append(data[i]['market_cap_cirulating'])
               token_trading_volume.append(data[i]['token_trading_volume'])
               tokenholders.append(data[i]['tokenholders'])
-              net_deposits.append(data[i]['net_deposits'])
+              
               tvl.append(data[i]['tvl'])
-              trading_volume.append(data[i]['trading_volume'])
+              
               fees.append(data[i]['fees'])
-              treasury.append(data[i]['treasury'])
-              treasury_net.append(data[i]['treasury_net'])
+              revenue.append(data[i]['revenue'])
+              
               user_dau.append(data[i]['user_dau'])
-              user_wau.append(data[i]['user_wau'])
-              user_mau.append(data[i]['user_mau'])
+              
               active_developers.append(data[i]['active_developers'])
               code_commits.append(data[i]['code_commits'])
-          dataa = [price,market_cap_fully_diluted,token_trading_volume,tokenholders,net_deposits,tvl,trading_volume,fees,treasury,treasury_net,user_dau,user_wau,user_mau,active_developers,code_commits]
-          df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','token_trading_volume','tokenholders','net_deposits','tvl','trading_volume','fees','treasury','treasury_net','user_dau','user_wau','user_mau','active_developers','code_commits'])
+          dataa = [price,market_cap_fully_diluted,market_cap_circulating,token_trading_volume,tokenholders,tvl,fees,revenue,user_dau,active_developers,code_commits]
+          df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','market_cap_circulating','token_trading_volume','tokenholders','tvl','fees','revenue','user_dau','active_developers','code_commits'])
           df = df.T.dropna()
           return df
         d = get_data_price(data)
