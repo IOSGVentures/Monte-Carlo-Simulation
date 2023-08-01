@@ -120,10 +120,10 @@ elif authentication_status:
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
 par1 = st.text_input("First parameter", key='2')
 par2 = st.text_input("Second parameter", key='3')
-start_date = st.date_input("Second parameter", key='3')
+start_date = st.date_input("Start Date", value=pd.to_datetime("2022-01-31", format="%Y-%m-%d"))
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
         st.header(f"Here's Correlation timeseries between {par1} and {par2} for {project_id.capitalize()}!")
-        f = plot_rolling_correlation(project_id, par1,par2)
+        f = plot_rolling_correlation(project_id, par1,par2,start_date)
         
         st.pyplot(f)
