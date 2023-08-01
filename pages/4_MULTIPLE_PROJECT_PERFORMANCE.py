@@ -128,7 +128,7 @@ project_ids_list = project_ids.split(",")
 project_ids_list = list(filter(str.strip, project_ids_list))
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
-        st.header("Here's Timeseries with Relative performance of ${entry_money} invested in {len(project_ids)} projects at {pd.date(start_date)}!")
+        st.header(f"Here's Timeseries with Relative performance of ${money} invested in {len(project_ids_list)} projects at {pd.date(date)}!")
         f1 = multiple_projects_performance(project_ids_list, date, money)
         
         st.pyplot(f1)
