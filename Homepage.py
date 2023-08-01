@@ -46,7 +46,7 @@ elif authentication_status:
     authenticator.logout("Logout", "sidebar")
     
     # ---- MAINPAGE ----
-    st.title(":bar_chart: Monte Carlo Simulation")
+    st.title(":bar_chart: Secondary Market Analysis")
     st.markdown("##")
     st.write('Welcome to Secondary Market Analisys web application!')
     st.write('At this Application, We can easily analyse any token in an arbitrary time frame.')
