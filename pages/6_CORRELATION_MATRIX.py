@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 import requests
 import json
+import seaborn as sns
 import matplotlib
 from matplotlib import pyplot as plt
 # Set the maximum number of open figures to 30
