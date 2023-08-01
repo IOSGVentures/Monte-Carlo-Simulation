@@ -125,6 +125,6 @@ par2 = st.text_input("Second parameter", value='trading_volume', key='3')
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
         st.header(f"Here's Correlation timeseries between {par1} and {par2} for {project_id.capitalize()}!")
-        f1 = plot_rolling_correlation(project_id, par1,par2)
+        plot_rolling_correlation(project_id, par1,par2)
         
         #sst.pyplot(f1)
