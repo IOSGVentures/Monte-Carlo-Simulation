@@ -122,7 +122,7 @@ elif authentication_status:
 #with st.form("my_form",clear_on_submit=False):
     
 project_ids = st.text_input('Enter the projects ID from Token Terminal', key='1')
-date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
+date = st.date_input("Start Date", value=pd.to_datetime("2022-01-01", format="%Y-%m-%d"))
 money = st.number_input("Entry money", value=1000)
 project_ids_list = project_ids.split(",")  
 project_ids_list = list(filter(str.strip, project_ids_list))
