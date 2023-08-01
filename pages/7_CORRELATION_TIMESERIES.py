@@ -119,8 +119,8 @@ elif authentication_status:
 #with st.form("my_form",clear_on_submit=False):
     
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
-par1 = st.text_input("First parameter", value='price', key='2')
-par2 = st.text_input("Second parameter", value='trading_volume', key='3')
+par1 = st.text_input("First parameter", key='2')
+par2 = st.text_input("Second parameter", key='3')
 
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
