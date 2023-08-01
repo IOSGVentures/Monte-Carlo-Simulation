@@ -104,8 +104,7 @@ elif authentication_status:
     
         # Create a heatmap
         plt.figure(figsize=(14, 10))
-        plt.matshow(correlation_matrix)
-        fig = plt.matshow(correlation_matrix)
+        sns.heatmap(correlation_matrix, annot=True, cmap="RdYlBu")
         plt.title('Correlation Matrix')
                     
         # Display the plot
