@@ -60,7 +60,7 @@ elif authentication_status:
           date = []
           price = []
           market_cap_fully_diluted = []
-          market_cap_cirulating = []
+          market_cap_circulating = []
           token_trading_volume = []
           tokenholders = []
           
@@ -77,7 +77,7 @@ elif authentication_status:
               date.append(pd.to_datetime((data[i]['timestamp'])))
               price.append(data[i]['price'])
               market_cap_fully_diluted.append(data[i]['market_cap_fully_diluted'])
-              market_cap_cirulating.append(data[i]['market_cap_cirulating'])
+              market_cap_circulating.append(data[i]['market_cap_circulating'])
               token_trading_volume.append(data[i]['token_trading_volume'])
               tokenholders.append(data[i]['tokenholders'])
               
