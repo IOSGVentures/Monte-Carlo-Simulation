@@ -21,7 +21,6 @@ from yaml.loader import SafeLoader
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 from numerize.numerize import numerize
-from seaborn import seaborn as sns
 st.set_page_config(page_title="Multiple project performance timeseries", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
@@ -105,7 +104,8 @@ elif authentication_status:
     
         # Create a heatmap
         plt.figure(figsize=(14, 10))
-        fig = sns.heatmap(correlation_matrix, annot=True, cmap="RdYlBu")
+        plt.matshow(correlation_matrix)
+        fig = plt.matshow(correlation_matrix)
         plt.title('Correlation Matrix')
                     
         # Display the plot
