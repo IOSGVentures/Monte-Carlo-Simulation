@@ -488,7 +488,7 @@ date = st.date_input("Start Date", value=pd.to_datetime("2022-01-31", format="%Y
 
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
-        st.header(f"Here's Correlation matrix between different parameters for {project_id.capitalize()}!")
-        f1 = get_correlation_matrix(project_id, date)
+        st.header(f"Here's table with multiples for listed projects!")
+        table = multi_project_df2(project_ids)
         
-        st.pyplot(f1)
+        st.dataframe(table, use_container_width=True)
