@@ -103,7 +103,7 @@ elif authentication_status:
       rolling_correlation = d[param1].rolling(window=30).corr(d[param2])
 
       # Create a line chart
-      plt.figure(figsize=(14, 8))
+      f = plt.figure(figsize=(14, 8))
       plt.plot(d.index, rolling_correlation, color='blue')
       plt.xlabel('Date')
       plt.ylabel('Rolling 30-Day Correlation')
