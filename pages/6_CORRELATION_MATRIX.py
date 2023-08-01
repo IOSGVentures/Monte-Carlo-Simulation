@@ -51,6 +51,11 @@ elif authentication_status:
     st.title(":earth_asia: Correlation between token parameters")
     st.markdown("##")
     def get_correlation_matrix(project_id, num_days):
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
+        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
         def get_data_price(data):
           date = []
           price = []
@@ -90,11 +95,6 @@ elif authentication_status:
           df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','token_trading_volume','tokenholders','net_deposits','tvl','trading_volume','fees','treasury','treasury_net','user_dau','user_wau','user_mau','active_developers','code_commits'])
           df = df.T.dropna()
           return df
-        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
-        response = requests.get(url, headers=headers)
-        data_shows = json.loads(response.text)
-        data = data_shows['data']
         d = get_data_price(data)
         d = d[::-1]
         d.index = pd.to_datetime(d.index).tz_localize(None)
