@@ -134,10 +134,17 @@ parameter_options = [
 ]
 
 # Create checkboxes for the parameters
-par1 = st.checkbox("First parameter", key='2')
-par2 = st.checkbox("Second parameter", key='3')
-
-start_date = st.date_input("Start date", key='4')
+par1 = st.checkbox("Price", key='2')
+par2 = st.checkbox("FDV", key='3')
+par3 = st.checkbox("Token trading volume", key='4')
+par4 = st.checkbox("Tokenholders", key='5')
+par5 = st.checkbox("TVL", key='6')
+par6 = st.checkbox("Trading volume", key='7')
+par7 = st.checkbox("Fees", key='8')
+par8 = st.checkbox("Weekly active users", key='9')
+par9 = st.checkbox("Active developers", key='10')
+par10 = st.checkbox("Code commits", key='11')
+start_date = st.date_input("Start date", key='12')
 
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
