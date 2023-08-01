@@ -21,7 +21,7 @@ from yaml.loader import SafeLoader
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 
-st.set_page_config(page_title="Monte Carlo Simulation", page_icon="🧐", layout="wide")
+st.set_page_config(page_title="Secondary Market Analysis", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
