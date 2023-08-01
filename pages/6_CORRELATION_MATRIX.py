@@ -104,7 +104,7 @@ elif authentication_status:
         correlation_matrix = d_selected.corr()
     
         # Create a heatmap
-        plt.figure(figsize=(14, 10))
+        fig = plt.figure(figsize=(14, 10))
         sns.heatmap(correlation_matrix, annot=True, cmap="RdYlBu")
         plt.title('Correlation Matrix')
                     
