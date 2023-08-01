@@ -118,12 +118,39 @@ elif authentication_status:
 #with st.form("my_form",clear_on_submit=False):
     
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
-par1 = st.text_input("First parameter", key='2')
-par2 = st.text_input("Second parameter", key='3')
-start_date = st.date_input("Start Date", value=pd.to_datetime("2022-01-31", format="%Y-%m-%d"))
+
+# Define the parameter options
+parameter_options = [
+    "price",
+    "market_cap_fully_diluted",
+    "token_trading_volume",
+    "tokenholders",
+    "tvl",
+    "trading_volume",
+    "fees",
+    "user_wau",
+    "active_developers",
+    "code_commits"
+]
+
+# Create checkboxes for the parameters
+par1 = st.checkbox("First parameter", key='2')
+par2 = st.checkbox("Second parameter", key='3')
+
+start_date = st.date_input("Start date", key='4')
+
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
-        st.header(f"Here's Correlation timeseries between {par1} and {par2} for {project_id.capitalize()}!")
-        f = plot_rolling_correlation(project_id, par1,par2,start_date)
+        # Get the selected parameters
+        selected_parameters = [parameter_options[i] for i, param in enumerate([par1, par2]) if param]
         
-        st.pyplot(f)
+        # Check if at least one parameter is selected
+        if not selected_parameters:
+            st.error("Please select at least one parameter.")
+        else:
+            # Now you can use the selected_parameters list in your function plot_rolling_correlation()
+            # For example: plot_rolling_correlation(project_id, selected_parameters[0], selected_parameters[1])
+            st.header(f"Here's Correlation timeseries between {selected_parameters[0]} and {selected_parameters[1]} for {project_id.capitalize()}!")
+            f = plot_rolling_correlation(project_id, selected_parameters[0], selected_parameters[1])
+            st.pyplot(f)
+
