@@ -86,7 +86,11 @@ elif authentication_status:
               fees.append(data[i]['fees'])
               revenue.append(data[i]['revenue'])
               
-              user_dau.append(data[i]['user_dau'])
+              # Handle KeyError for 'user_dau'
+              try:
+                  user_dau.append(data[i]['user_dau'])
+              except KeyError:
+                  user_dau.append(None)  # Add None when 'user_dau' is missing
               
               active_developers.append(data[i]['active_developers'])
               code_commits.append(data[i]['code_commits'])
