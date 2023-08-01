@@ -310,8 +310,8 @@ elif authentication_status:
 #with st.form("my_form",clear_on_submit=False):
     
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
-ma1 = st.number_input('Enter the first number of days for moving averages', key='2')
-ma2 = st.number_input('Enter the second number of days for moving averages', key='3')
+ma1 = st.number_input('Enter the first number of days for moving averages', value=7, key='2')
+ma2 = st.number_input('Enter the second number of days for moving averages', value=30, key='3')
 date = st.date_input("Start Date", value=pd.to_datetime("2022-01-31", format="%Y-%m-%d"), key='4')
 
 with st.form("monte_carlo_form"):
