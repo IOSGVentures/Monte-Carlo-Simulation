@@ -21,7 +21,7 @@ from yaml.loader import SafeLoader
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 from numerize.numerize import numerize
-import seaborn as sns
+from seaborn import seaborn as sns
 st.set_page_config(page_title="Multiple project performance timeseries", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
