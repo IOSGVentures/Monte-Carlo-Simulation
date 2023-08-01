@@ -52,27 +52,27 @@ elif authentication_status:
     st.markdown("##")
     def multiple_projects_performance(project_ids, start_date, entry_money):
 
-    """
-    This function takes a list of project ids, a start date and an entry investment amount as input.
-    It uses the Token Terminal API to retrieve historical price data for each project and calculates
-    the relative performance of the entry investment amount over time for each project.
-    The function returns a plot of the relative performance of the entry investment amount in each project.
+      """
+      This function takes a list of project ids, a start date and an entry investment amount as input.
+      It uses the Token Terminal API to retrieve historical price data for each project and calculates
+      the relative performance of the entry investment amount over time for each project.
+      The function returns a plot of the relative performance of the entry investment amount in each project.
 
-    Args:
-    - project_ids: list - a list of project ids for which to retrieve price data
-    - start_date: str - the start date of the analysis in 'YYYY-MM-DD' format
-    - entry_money: float - the amount of money to invest initially in each project
+      Args:
+      - project_ids: list - a list of project ids for which to retrieve price data
+      - start_date: str - the start date of the analysis in 'YYYY-MM-DD' format
+      - entry_money: float - the amount of money to invest initially in each project
 
-    Returns:
-    - matplotlib.figure.Figure - a plot of the relative performance of the entry investment amount in each project
+      Returns:
+      - matplotlib.figure.Figure - a plot of the relative performance of the entry investment amount in each project
 
-     Example usage:
+       Example usage:
 
-        from multiple_projects_performance import multiple_projects_performance
-        project_ids = ['bitcoin', 'ethereum']
-        start_date = '2022-01-01'
-        result = multiple_projects_performance(project_ids, start_date)
-    """
+      from multiple_projects_performance import multiple_projects_performance
+      project_ids = ['bitcoin', 'ethereum']
+      start_date = '2022-01-01'
+      result = multiple_projects_performance(project_ids, start_date)
+      """
       start_date = pd.to_datetime(start_date)
       def standardize(data, start_value):
           data.iloc[0] = start_value
