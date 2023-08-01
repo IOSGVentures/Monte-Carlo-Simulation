@@ -483,12 +483,12 @@ elif authentication_status:
     	
 #with st.form("my_form",clear_on_submit=False):
     
-project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
-date = st.date_input("Start Date", value=pd.to_datetime("2022-01-31", format="%Y-%m-%d"))
+project_ids = st.text_input('Enter the projects ID from Token Terminal', key='1')
+project_ids_list = [token.strip() for token in project_ids.split(',')]
 
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
         st.header(f"Here's table with multiples for listed projects!")
-        table = multi_project_df2(project_ids)
+        table = multi_project_df2(project_ids_list)
         
         st.dataframe(table, use_container_width=True)
