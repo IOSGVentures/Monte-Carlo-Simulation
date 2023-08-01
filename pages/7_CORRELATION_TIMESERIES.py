@@ -55,16 +55,12 @@ elif authentication_status:
         date = []
         price = []
         market_cap_fully_diluted = []
+        market_cap_circulating = []
         token_trading_volume = []
         tokenholders = []
-        
         tvl = []
-        trading_volume = []
         fees = []
-        
-      
-        user_wau = []
-     
+        revenue = []
         active_developers = []
         code_commits = []
     
@@ -72,20 +68,16 @@ elif authentication_status:
             date.append(pd.to_datetime((data[i]['timestamp'])))
             price.append(data[i]['price'])
             market_cap_fully_diluted.append(data[i]['market_cap_fully_diluted'])
+            market_cap_circulating.append(data[i]['market_cap_circulating'])
             token_trading_volume.append(data[i]['token_trading_volume'])
             tokenholders.append(data[i]['tokenholders'])
-            
             tvl.append(data[i]['tvl'])
-            trading_volume.append(data[i]['trading_volume'])
             fees.append(data[i]['fees'])
-            
-           
-            user_wau.append(data[i]['user_wau'])
-       
+            revenue.append(data[i]['revenue'])
             active_developers.append(data[i]['active_developers'])
             code_commits.append(data[i]['code_commits'])
-        dataa = [price,market_cap_fully_diluted,token_trading_volume,tokenholders,tvl,trading_volume,fees,user_wau,active_developers,code_commits]
-        df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','token_trading_volume','tokenholders','tvl','trading_volume','fees','user_wau','active_developers','code_commits'])
+        dataa = [price,market_cap_fully_diluted,market_cap_circulating,token_trading_volume,tokenholders,tvl,fees,revenue,active_developers,code_commits]
+        df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','market_cap_circulating','token_trading_volume','tokenholders','tvl','fees','revenue','active_developers','code_commits'])
         df = df.T.dropna()
         return df
       url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
@@ -118,8 +110,8 @@ elif authentication_status:
 #with st.form("my_form",clear_on_submit=False):
     
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
-par1 = st.text_input('Enter the first parameter (price,market_cap_fully_diluted,token_trading_volume,tokenholders,tvl,trading_volume,fees,user_wau,active_developers,code_commits)', key='2')
-par2 = st.text_input('Enter the second parameter (price,market_cap_fully_diluted,token_trading_volume,tokenholders,tvl,trading_volume,fees,user_wau,active_developers,code_commits)', key='3')
+par1 = st.text_input('Enter the first parameter (price,market_cap_fully_diluted,market_cap_circulating,token_trading_volume,tokenholders,tvl,fees,revenue,active_developers,code_commits)', key='2')
+par2 = st.text_input('Enter the second parameter (price,market_cap_fully_diluted,market_cap_circulating,token_trading_volume,tokenholders,tvl,fees,revenue,active_developers,code_commits)', key='3')
 start_date = st.date_input("Enter the Date from which the chart will start", value=pd.to_datetime("2022-01-01", format="%Y-%m-%d"))
 
 with st.form("monte_carlo_form"):
