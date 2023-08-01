@@ -128,6 +128,6 @@ project_ids_list = project_ids.split(",")
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
         st.header(f"Here's Timeseries with token price in USD, ETH and BTC for listed projects!")
-        f1 = multiple_projects_performance(project_ids, date, money)
+        f1 = multiple_projects_performance(project_ids_list, date, money)
         
         st.pyplot(f1)
