@@ -120,7 +120,7 @@ elif authentication_status:
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
 par1 = st.text_input('Enter the first parameter (price,market_cap_fully_diluted,token_trading_volume,tokenholders,tvl,trading_volume,fees,user_wau,active_developers,code_commits)', key='2')
 par2 = st.text_input('Enter the second parameter (price,market_cap_fully_diluted,token_trading_volume,tokenholders,tvl,trading_volume,fees,user_wau,active_developers,code_commits)', key='3')
-start_date = st.date_input('Enter ')
+start_date = st.date_input("Enter the Date from which the chart will start", value=pd.to_datetime("2022-01-01", format="%Y-%m-%d"))
 
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
