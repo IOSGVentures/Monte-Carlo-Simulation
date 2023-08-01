@@ -50,7 +50,7 @@ elif authentication_status:
     # ---- MAINPAGE ----
     st.title(":earth_asia: Correlation between token parameters timeseries")
     st.markdown("##")
-    def plot_rolling_correlation(project_id, param1, param2):
+    def plot_rolling_correlation(project_id, param1, param2,start_date):
       def get_data_price(data):
         date = []
         price = []
@@ -95,6 +95,7 @@ elif authentication_status:
       data = data_shows['data']
       d = get_data_price(data)
       d = d[::-1]
+      d = d[f'{start_date}':]
       d.index = pd.to_datetime(d.index).tz_localize(None)
       # Calculate the correlation matrix between all parameters
       correlation_matrix = d.corr()
@@ -119,7 +120,7 @@ elif authentication_status:
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
 par1 = st.text_input("First parameter", key='2')
 par2 = st.text_input("Second parameter", key='3')
-
+start_date = st.date_input("Second parameter", key='3')
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
         st.header(f"Here's Correlation timeseries between {par1} and {par2} for {project_id.capitalize()}!")
