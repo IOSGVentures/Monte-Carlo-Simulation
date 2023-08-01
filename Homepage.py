@@ -56,5 +56,5 @@ elif authentication_status:
     st.write('sigma (implied volatility from in the money option - (https://www.deribit.com/options/ETH)')
     st.write('mean (here we leverage risk-neutral assumption underpinning option pricing models - (https://ycharts.com/indicators/1_year_treasury_rate)')
     st.write('period (default - one year from now)')
-    st.write('The data used in the application is from the Token terminal API, so it is necessary to enter the correct names of the projects in accordance with the name on their website.')
+    st.write('The data used in the application is from the Token Terminal API, so it is necessary to enter the correct names of the projects in accordance with the name on their website.')
     
