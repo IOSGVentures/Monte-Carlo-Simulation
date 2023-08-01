@@ -317,7 +317,7 @@ date = st.date_input("Start Date", value=pd.to_datetime("2022-01-31", format="%Y
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
         st.header(f"Here's Token price and {ma1}-days and {ma2}-days moving averages in USD with crossing points for {project_id.capitalize()}!")
-        f1,f2,f3,f4,f5,f6 = get_correlation_matrix(project_id,ma1,ma2, date)
+        f1,f2,f3,f4,f5,f6 = plot_rolling_averages(project_id,ma1,ma2, date)
         st.pyplot(f1)
         st.header(f"Here's Token price and {ma1}-days and {ma2}-days moving averages in ETH with crossing points for {project_id.capitalize()}!")
         st.pyplot(f2)
