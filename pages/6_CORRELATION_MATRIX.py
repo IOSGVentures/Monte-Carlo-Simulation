@@ -115,7 +115,7 @@ elif authentication_status:
 #with st.form("my_form",clear_on_submit=False):
     
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
-date = st.date_input("Start Date", value=pd.to_datetime("2022-01-31", format="%Y-%m-%d"))
+date = st.number_input("Number of days for calculation", value=365)
 
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
