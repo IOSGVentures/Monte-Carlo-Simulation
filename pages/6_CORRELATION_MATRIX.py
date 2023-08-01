@@ -51,55 +51,55 @@ elif authentication_status:
     st.title(":earth_asia: Correlation between token parameters")
     st.markdown("##")
     def get_correlation_matrix(project_id, num_days):
-        def get_data_price(data):
-          date = []
-          price = []
-          market_cap_fully_diluted = []
-          token_trading_volume = []
-          tokenholders = []
-          tvl = []
-          trading_volume = []
-          fees = []
-          user_wau = []
-          active_developers = []
-          code_commits = []
+          def get_data_price(data):
+            date = []
+            price = []
+            market_cap_fully_diluted = []
+            token_trading_volume = []
+            tokenholders = []
+            tvl = []
+            trading_volume = []
+            fees = []
+            user_wau = []
+            active_developers = []
+            code_commits = []
 
-          for i in range(len(data)):
-              date.append(pd.to_datetime((data[i]['timestamp'])))
-              price.append(data[i]['price'])
-              market_cap_fully_diluted.append(data[i]['market_cap_fully_diluted'])
-              token_trading_volume.append(data[i]['token_trading_volume'])
-              tokenholders.append(data[i]['tokenholders'])
-              tvl.append(data[i]['tvl'])
-              trading_volume.append(data[i]['trading_volume'])
-              fees.append(data[i]['fees'])
-              user_wau.append(data[i]['user_wau'])
-              active_developers.append(data[i]['active_developers'])
-              code_commits.append(data[i]['code_commits'])
-          dataa = [price,market_cap_fully_diluted,token_trading_volume,tokenholders,tvl,trading_volume,fees,user_wau,active_developers,code_commits]
-          df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','token_trading_volume','tokenholders','tvl','trading_volume','fees','user_wau','active_developers','code_commits'])
-          df = df.T.dropna()
-          return df
-        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
-        response = requests.get(url, headers=headers)
-        data_shows = json.loads(response.text)
-        data = data_shows['data']
-        d = get_data_price(data)
-        d = d[::-1]
-        d.index = pd.to_datetime(d.index).tz_localize(None)
-        d_selected = d.tail(num_days)
+            for i in range(len(data)):
+                date.append(pd.to_datetime((data[i]['timestamp'])))
+                price.append(data[i]['price'])
+                market_cap_fully_diluted.append(data[i]['market_cap_fully_diluted'])
+                token_trading_volume.append(data[i]['token_trading_volume'])
+                tokenholders.append(data[i]['tokenholders'])
+                tvl.append(data[i]['tvl'])
+                trading_volume.append(data[i]['trading_volume'])
+                fees.append(data[i]['fees'])
+                user_wau.append(data[i]['user_wau'])
+                active_developers.append(data[i]['active_developers'])
+                code_commits.append(data[i]['code_commits'])
+            dataa = [price,market_cap_fully_diluted,token_trading_volume,tokenholders,tvl,trading_volume,fees,user_wau,active_developers,code_commits]
+            df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','token_trading_volume','tokenholders','tvl','trading_volume','fees','user_wau','active_developers','code_commits'])
+            df = df.T.dropna()
+            return df
+          url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
+          headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+          response = requests.get(url, headers=headers)
+          data_shows = json.loads(response.text)
+          data = data_shows['data']
+          d = get_data_price(data)
+          d = d[::-1]
+          d.index = pd.to_datetime(d.index).tz_localize(None)
+          d_selected = d.tail(num_days)
 
-        # Assuming your DataFrame is called "df"
-        correlation_matrix = d_selected.corr()
+          # Assuming your DataFrame is called "df"
+          correlation_matrix = d_selected.corr()
 
-        # Create a heatmap
-        plt.figure(figsize=(14, 10))
-        fig = sns.heatmap(correlation_matrix, annot=True, cmap="RdYlBu")
-        plt.title('Correlation Matrix')
+          # Create a heatmap
+          plt.figure(figsize=(14, 10))
+          fig = sns.heatmap(correlation_matrix, annot=True, cmap="RdYlBu")
+          plt.title('Correlation Matrix')
 
-        # Display the plot
-        return fig
+          # Display the plot
+          return fig
 
     	
 #with st.form("my_form",clear_on_submit=False):
