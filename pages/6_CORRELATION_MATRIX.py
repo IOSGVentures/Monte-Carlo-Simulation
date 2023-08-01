@@ -63,13 +63,9 @@ elif authentication_status:
           market_cap_circulating = []
           token_trading_volume = []
           tokenholders = []
-          
           tvl = []
-          
           fees = []
           revenue = []
-          user_dau = []
-          
           active_developers = []
           code_commits = []
     
@@ -80,22 +76,13 @@ elif authentication_status:
               market_cap_circulating.append(data[i]['market_cap_circulating'])
               token_trading_volume.append(data[i]['token_trading_volume'])
               tokenholders.append(data[i]['tokenholders'])
-              
               tvl.append(data[i]['tvl'])
-              
               fees.append(data[i]['fees'])
               revenue.append(data[i]['revenue'])
-              
-              # Handle KeyError for 'user_dau'
-              try:
-                  user_dau.append(data[i]['user_dau'])
-              except KeyError:
-                  user_dau.append(None)  # Add None when 'user_dau' is missing
-              
               active_developers.append(data[i]['active_developers'])
               code_commits.append(data[i]['code_commits'])
-          dataa = [price,market_cap_fully_diluted,market_cap_circulating,token_trading_volume,tokenholders,tvl,fees,revenue,user_dau,active_developers,code_commits]
-          df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','market_cap_circulating','token_trading_volume','tokenholders','tvl','fees','revenue','user_dau','active_developers','code_commits'])
+          dataa = [price,market_cap_fully_diluted,market_cap_circulating,token_trading_volume,tokenholders,tvl,fees,revenue,active_developers,code_commits]
+          df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','market_cap_circulating','token_trading_volume','tokenholders','tvl','fees','revenue','active_developers','code_commits'])
           df = df.T.dropna()
           return df
         d = get_data_price(data)
