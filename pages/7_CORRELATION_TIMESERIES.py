@@ -51,7 +51,45 @@ elif authentication_status:
     st.title(":earth_asia: Correlation between token parameters timeseries")
     st.markdown("##")
     def plot_rolling_correlation(project_id, param1, param2):
-
+      def get_data_price(data):
+        date = []
+        price = []
+        market_cap_fully_diluted = []
+        token_trading_volume = []
+        tokenholders = []
+        net_deposits = []
+        tvl = []
+        trading_volume = []
+        fees = []
+        treasury = []
+        treasury_net = []
+        user_dau = []
+        user_wau = []
+        user_mau = []
+        active_developers = []
+        code_commits = []
+    
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            price.append(data[i]['price'])
+            market_cap_fully_diluted.append(data[i]['market_cap_fully_diluted'])
+            token_trading_volume.append(data[i]['token_trading_volume'])
+            tokenholders.append(data[i]['tokenholders'])
+            net_deposits.append(data[i]['net_deposits'])
+            tvl.append(data[i]['tvl'])
+            trading_volume.append(data[i]['trading_volume'])
+            fees.append(data[i]['fees'])
+            treasury.append(data[i]['treasury'])
+            treasury_net.append(data[i]['treasury_net'])
+            user_dau.append(data[i]['user_dau'])
+            user_wau.append(data[i]['user_wau'])
+            user_mau.append(data[i]['user_mau'])
+            active_developers.append(data[i]['active_developers'])
+            code_commits.append(data[i]['code_commits'])
+        dataa = [price,market_cap_fully_diluted,token_trading_volume,tokenholders,net_deposits,tvl,trading_volume,fees,treasury,treasury_net,user_dau,user_wau,user_mau,active_developers,code_commits]
+        df = pd.DataFrame(dataa, columns=date, index=['price','market_cap_fully_diluted','token_trading_volume','tokenholders','net_deposits','tvl','trading_volume','fees','treasury','treasury_net','user_dau','user_wau','user_mau','active_developers','code_commits'])
+        df = df.T.dropna()
+        return df
       url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
       headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
       response = requests.get(url, headers=headers)
@@ -83,8 +121,8 @@ elif authentication_status:
 #with st.form("my_form",clear_on_submit=False):
     
 project_id = st.text_input('Enter the project ID from Token Terminal', key='1')
-par1 = st.text_input("First parameter", value=price, key='2')
-par2 = st.text_input("Second parameter", value=price, key='3')
+par1 = st.text_input("First parameter", value='price', key='2')
+par2 = st.text_input("Second parameter", value='token_trading_volume', key='3')
 
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
