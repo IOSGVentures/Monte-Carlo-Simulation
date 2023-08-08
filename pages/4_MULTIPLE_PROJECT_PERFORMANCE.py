@@ -93,7 +93,7 @@ elif authentication_status:
           df = df.T.dropna()
           return df
 
-      headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+      {"Authorization": st.secrets["Authorization"]}
 
       d_list = []
       for project_id in project_ids:
