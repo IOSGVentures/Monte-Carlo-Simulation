@@ -64,7 +64,7 @@ elif authentication_status:
             df = df.T.dropna()
             return df
     
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["Authorization"]}
     
         project_ids = ['bitcoin','ethereum']
     
