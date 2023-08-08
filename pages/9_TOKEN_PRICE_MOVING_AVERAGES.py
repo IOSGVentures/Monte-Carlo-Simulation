@@ -316,7 +316,22 @@ elif authentication_status:
           ax6.set_ylabel("return", fontsize=18)
           plt.xticks(np.arange(9), ['30 days', '45 days', '60 days', '75 days', '90 days', '120 days', '150 days', '180 days', '365 days'])
         
-        return fig,fig2,fig3,fig4,fig5,fig6
+        if len(average_returns_usd) == 0 and len(average_returns_eth) == 0 and len(average_returns_btc) == 0:
+            return fig, fig2, fig3
+        elif len(average_returns_usd) == 0 and len(average_returns_eth) == 0:
+            return fig, fig2, fig3, fig6
+        elif len(average_returns_usd) == 0 and len(average_returns_btc) == 0:
+            return fig, fig2, fig3, fig5
+        elif len(average_returns_eth) == 0 and len(average_returns_btc) == 0:
+            return fig, fig2, fig3, fig4
+        elif len(average_returns_usd) == 0:
+            return fig, fig2, fig3, fig5, fig6
+        elif len(average_returns_eth) == 0:
+            return fig, fig2, fig3, fig4, fig6
+        elif len(average_returns_btc) == 0:
+            return fig, fig2, fig3, fig4, fig5
+        else:
+            return fig, fig2, fig3, fig4, fig5, fig6
 
     	
 #with st.form("my_form",clear_on_submit=False):
