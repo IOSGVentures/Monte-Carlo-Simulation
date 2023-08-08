@@ -81,7 +81,7 @@ elif authentication_status:
         df = df.T.dropna()
         return df
       url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
-      headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+      headers = {"Authorization": st.secrets["Authorization"]}
       response = requests.get(url, headers=headers)
       data_shows = json.loads(response.text)
       data = data_shows['data']
