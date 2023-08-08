@@ -50,6 +50,7 @@ elif authentication_status:
     # ---- MAINPAGE ----
     st.title(":earth_asia: Token price and Moving averages")
     st.markdown("##")
+
     def plot_rolling_averages(project_id, roll_1, roll_2, start_date):
 
         def get_data(data):
@@ -63,7 +64,7 @@ elif authentication_status:
             df = df.T.dropna()
             return df
     
-        headers = {"Authorization": st.secrets["Authorization"]}
+        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
     
         project_ids = ['bitcoin','ethereum']
     
@@ -110,43 +111,44 @@ elif authentication_status:
                 #if eth.iloc[i]["Close"] < eth.iloc[i]["200_day_MA"] and eth.iloc[i+14]["Close"] < eth.iloc[i+14]["200_day_MA"]:
                     #if eth.iloc[i+14]["Close"] > eth.iloc[i+14]["200_day_MA"]:
                         #dates.append(eth.index[i+14])
+        if dates_usd:
+          returns_usd = []
+          for date in dates_usd:
+              idx = df.index.get_loc(date)
+              close_price = df.iloc[idx][f'price_{project_id}_usd']
     
-        returns_usd = []
-        for date in dates_usd:
-            idx = df.index.get_loc(date)
-            close_price = df.iloc[idx][f'price_{project_id}_usd']
+              if idx + 365 < len(df):
+                  returns_usd.append({
+                      "date": date,
+                      "30_day_return": (df.iloc[idx+30][f'price_{project_id}_usd'] - close_price) / close_price,
+                      "45_day_return": (df.iloc[idx+45][f'price_{project_id}_usd'] - close_price) / close_price,
+                      "60_day_return": (df.iloc[idx+60][f'price_{project_id}_usd'] - close_price) / close_price,
+                      "75_day_return": (df.iloc[idx+75][f'price_{project_id}_usd'] - close_price) / close_price,
+                      "90_day_return": (df.iloc[idx+90][f'price_{project_id}_usd'] - close_price) / close_price,
+                      "120_day_return": (df.iloc[idx+120][f'price_{project_id}_usd'] - close_price) / close_price,
+                      "150_day_return": (df.iloc[idx+150][f'price_{project_id}_usd'] - close_price) / close_price,
+                      "180_day_return": (df.iloc[idx+180][f'price_{project_id}_usd'] - close_price) / close_price,
+                      "365_day_return": (df.iloc[idx+365][f'price_{project_id}_usd'] - close_price) / close_price
+                  })
     
-            if idx + 365 < len(df):
-                returns_usd.append({
-                    "date": date,
-                    "30_day_return": (df.iloc[idx+30][f'price_{project_id}_usd'] - close_price) / close_price,
-                    "45_day_return": (df.iloc[idx+45][f'price_{project_id}_usd'] - close_price) / close_price,
-                    "60_day_return": (df.iloc[idx+60][f'price_{project_id}_usd'] - close_price) / close_price,
-                    "75_day_return": (df.iloc[idx+75][f'price_{project_id}_usd'] - close_price) / close_price,
-                    "90_day_return": (df.iloc[idx+90][f'price_{project_id}_usd'] - close_price) / close_price,
-                    "120_day_return": (df.iloc[idx+120][f'price_{project_id}_usd'] - close_price) / close_price,
-                    "150_day_return": (df.iloc[idx+150][f'price_{project_id}_usd'] - close_price) / close_price,
-                    "180_day_return": (df.iloc[idx+180][f'price_{project_id}_usd'] - close_price) / close_price,
-                    "365_day_return": (df.iloc[idx+365][f'price_{project_id}_usd'] - close_price) / close_price
-                })
+          returns_usd = pd.DataFrame(returns_usd)
     
-        returns_usd = pd.DataFrame(returns_usd)
+          average_returns_usd = {
+              "30_day_return": (np.prod(1 + returns_usd["30_day_return"]) ** (1 / len(returns_usd["30_day_return"])) - 1) * 100,
+              "45_day_return": (np.prod(1 + returns_usd["45_day_return"]) ** (1 / len(returns_usd["45_day_return"])) - 1) * 100,
+              "60_day_return": (np.prod(1 + returns_usd["60_day_return"]) ** (1 / len(returns_usd["60_day_return"])) - 1) * 100,
+              "75_day_return": (np.prod(1 + returns_usd["75_day_return"]) ** (1 / len(returns_usd["75_day_return"])) - 1) * 100,
+              "90_day_return": (np.prod(1 + returns_usd["90_day_return"]) ** (1 / len(returns_usd["90_day_return"])) - 1) * 100,
+              "120_day_return": (np.prod(1 + returns_usd["120_day_return"]) ** (1 / len(returns_usd["120_day_return"])) - 1) * 100,
+              "150_day_return": (np.prod(1 + returns_usd["150_day_return"]) ** (1 / len(returns_usd["150_day_return"])) - 1) * 100,
+              "180_day_return": (np.prod(1 + returns_usd["180_day_return"]) ** (1 / len(returns_usd["180_day_return"])) - 1) * 100,
+              "365_day_return": (np.prod(1 + returns_usd["365_day_return"]) ** (1 / len(returns_usd["365_day_return"])) - 1) * 100
+          }
     
-        average_returns_usd = {
-            "30_day_return": (np.prod(1 + returns_usd["30_day_return"]) ** (1 / len(returns_usd["30_day_return"])) - 1) * 100,
-            "45_day_return": (np.prod(1 + returns_usd["45_day_return"]) ** (1 / len(returns_usd["45_day_return"])) - 1) * 100,
-            "60_day_return": (np.prod(1 + returns_usd["60_day_return"]) ** (1 / len(returns_usd["60_day_return"])) - 1) * 100,
-            "75_day_return": (np.prod(1 + returns_usd["75_day_return"]) ** (1 / len(returns_usd["75_day_return"])) - 1) * 100,
-            "90_day_return": (np.prod(1 + returns_usd["90_day_return"]) ** (1 / len(returns_usd["90_day_return"])) - 1) * 100,
-            "120_day_return": (np.prod(1 + returns_usd["120_day_return"]) ** (1 / len(returns_usd["120_day_return"])) - 1) * 100,
-            "150_day_return": (np.prod(1 + returns_usd["150_day_return"]) ** (1 / len(returns_usd["150_day_return"])) - 1) * 100,
-            "180_day_return": (np.prod(1 + returns_usd["180_day_return"]) ** (1 / len(returns_usd["180_day_return"])) - 1) * 100,
-            "365_day_return": (np.prod(1 + returns_usd["365_day_return"]) ** (1 / len(returns_usd["365_day_return"])) - 1) * 100
-        }
+          average_returns_usd = pd.Series(average_returns_usd)
     
-        average_returns_usd = pd.Series(average_returns_usd)
-    
-    
+        else:
+          average_returns_usd = {}  # Empty dictionary if dates_eth is empty
         dates_eth = []
         for i in range(len(df) - 15):
             if df.iloc[i][f"{roll_2}_day_MA_ETH"] < df.iloc[i][f"{roll_1}_day_MA_ETH"]:
@@ -156,44 +158,47 @@ elif authentication_status:
                 #if eth.iloc[i]["Close"] < eth.iloc[i]["200_day_MA"] and eth.iloc[i+14]["Close"] < eth.iloc[i+14]["200_day_MA"]:
                     #if eth.iloc[i+14]["Close"] > eth.iloc[i+14]["200_day_MA"]:
                         #dates.append(eth.index[i+14])
+        if dates_eth:
+          returns_eth = []
+          for date in dates_eth:
+              idx = df.index.get_loc(date)
+              close_price = df.iloc[idx][f'price_{project_id}_eth']
     
-        returns_eth = []
-        for date in dates_eth:
-            idx = df.index.get_loc(date)
-            close_price = df.iloc[idx][f'price_{project_id}_eth']
+              if idx + 365 < len(df):
+                  returns_eth.append({
+                      "date": date,
+                      "30_day_return": (df.iloc[idx+30][f'price_{project_id}_eth'] - close_price) / close_price,
+                      "45_day_return": (df.iloc[idx+45][f'price_{project_id}_eth'] - close_price) / close_price,
+                      "60_day_return": (df.iloc[idx+60][f'price_{project_id}_eth'] - close_price) / close_price,
+                      "75_day_return": (df.iloc[idx+75][f'price_{project_id}_eth'] - close_price) / close_price,
+                      "90_day_return": (df.iloc[idx+90][f'price_{project_id}_eth'] - close_price) / close_price,
+                      "120_day_return": (df.iloc[idx+120][f'price_{project_id}_eth'] - close_price) / close_price,
+                      "150_day_return": (df.iloc[idx+150][f'price_{project_id}_eth'] - close_price) / close_price,
+                      "180_day_return": (df.iloc[idx+180][f'price_{project_id}_eth'] - close_price) / close_price,
+                      "365_day_return": (df.iloc[idx+365][f'price_{project_id}_eth'] - close_price) / close_price
+                  })
     
-            if idx + 365 < len(df):
-                returns_eth.append({
-                    "date": date,
-                    "30_day_return": (df.iloc[idx+30][f'price_{project_id}_eth'] - close_price) / close_price,
-                    "45_day_return": (df.iloc[idx+45][f'price_{project_id}_eth'] - close_price) / close_price,
-                    "60_day_return": (df.iloc[idx+60][f'price_{project_id}_eth'] - close_price) / close_price,
-                    "75_day_return": (df.iloc[idx+75][f'price_{project_id}_eth'] - close_price) / close_price,
-                    "90_day_return": (df.iloc[idx+90][f'price_{project_id}_eth'] - close_price) / close_price,
-                    "120_day_return": (df.iloc[idx+120][f'price_{project_id}_eth'] - close_price) / close_price,
-                    "150_day_return": (df.iloc[idx+150][f'price_{project_id}_eth'] - close_price) / close_price,
-                    "180_day_return": (df.iloc[idx+180][f'price_{project_id}_eth'] - close_price) / close_price,
-                    "365_day_return": (df.iloc[idx+365][f'price_{project_id}_eth'] - close_price) / close_price
-                })
+          returns_eth = pd.DataFrame(returns_eth)
     
-        returns_eth = pd.DataFrame(returns_eth)
+          average_returns_eth = {
+          "30_day_return": (np.prod(1 + returns_eth["30_day_return"]) ** (1 / len(returns_eth["30_day_return"])) - 1) * 100,
+          "45_day_return": (np.prod(1 + returns_eth["45_day_return"]) ** (1 / len(returns_eth["45_day_return"])) - 1) * 100,
+          "60_day_return": (np.prod(1 + returns_eth["60_day_return"]) ** (1 / len(returns_eth["60_day_return"])) - 1) * 100,
+          "75_day_return": (np.prod(1 + returns_eth["75_day_return"]) ** (1 / len(returns_eth["75_day_return"])) - 1) * 100,
+          "90_day_return": (np.prod(1 + returns_eth["90_day_return"]) ** (1 / len(returns_eth["90_day_return"])) - 1) * 100,
+          "120_day_return": (np.prod(1 + returns_eth["120_day_return"]) ** (1 / len(returns_eth["120_day_return"])) - 1) * 100,
+          "150_day_return": (np.prod(1 + returns_eth["150_day_return"]) ** (1 / len(returns_eth["150_day_return"])) - 1) * 100,
+          "180_day_return": (np.prod(1 + returns_eth["180_day_return"]) ** (1 / len(returns_eth["180_day_return"])) - 1) * 100,
+          "365_day_return": (np.prod(1 + returns_eth["365_day_return"]) ** (1 / len(returns_eth["365_day_return"])) - 1) * 100
+          }
     
-        average_returns_eth = {
-        "30_day_return": (np.prod(1 + returns_eth["30_day_return"]) ** (1 / len(returns_eth["30_day_return"])) - 1) * 100,
-        "45_day_return": (np.prod(1 + returns_eth["45_day_return"]) ** (1 / len(returns_eth["45_day_return"])) - 1) * 100,
-        "60_day_return": (np.prod(1 + returns_eth["60_day_return"]) ** (1 / len(returns_eth["60_day_return"])) - 1) * 100,
-        "75_day_return": (np.prod(1 + returns_eth["75_day_return"]) ** (1 / len(returns_eth["75_day_return"])) - 1) * 100,
-        "90_day_return": (np.prod(1 + returns_eth["90_day_return"]) ** (1 / len(returns_eth["90_day_return"])) - 1) * 100,
-        "120_day_return": (np.prod(1 + returns_eth["120_day_return"]) ** (1 / len(returns_eth["120_day_return"])) - 1) * 100,
-        "150_day_return": (np.prod(1 + returns_eth["150_day_return"]) ** (1 / len(returns_eth["150_day_return"])) - 1) * 100,
-        "180_day_return": (np.prod(1 + returns_eth["180_day_return"]) ** (1 / len(returns_eth["180_day_return"])) - 1) * 100,
-        "365_day_return": (np.prod(1 + returns_eth["365_day_return"]) ** (1 / len(returns_eth["365_day_return"])) - 1) * 100
-    }
+          average_returns_eth = pd.Series(average_returns_eth)
     
-        average_returns_eth = pd.Series(average_returns_eth)
-    
+        else:
+          average_returns_eth = {}  # Empty dictionary if dates_eth is empty
     
         dates_btc = []
+          
         for i in range(len(df) - 15):
             if df.iloc[i][f"{roll_2}_day_MA_BTC"] < df.iloc[i][f"{roll_1}_day_MA_BTC"]:
                 if df.iloc[i+1][f"{roll_2}_day_MA_BTC"] > df.iloc[i+1][f"{roll_1}_day_MA_BTC"]:
@@ -202,42 +207,43 @@ elif authentication_status:
                 #if eth.iloc[i]["Close"] < eth.iloc[i]["200_day_MA"] and eth.iloc[i+14]["Close"] < eth.iloc[i+14]["200_day_MA"]:
                     #if eth.iloc[i+14]["Close"] > eth.iloc[i+14]["200_day_MA"]:
                         #dates.append(eth.index[i+14])
+        if dates_btc:
+          returns_btc = []
+          for date in dates_btc:
+              idx = df.index.get_loc(date)
+              close_price = df.iloc[idx][f'price_{project_id}_btc']
     
-        returns_btc = []
-        for date in dates_btc:
-            idx = df.index.get_loc(date)
-            close_price = df.iloc[idx][f'price_{project_id}_btc']
+              if idx + 365 < len(df):
+                  returns_btc.append({
+                      "date": date,
+                      "30_day_return": (df.iloc[idx+30][f'price_{project_id}_btc'] - close_price) / close_price,
+                      "45_day_return": (df.iloc[idx+45][f'price_{project_id}_btc'] - close_price) / close_price,
+                      "60_day_return": (df.iloc[idx+60][f'price_{project_id}_btc'] - close_price) / close_price,
+                      "75_day_return": (df.iloc[idx+75][f'price_{project_id}_btc'] - close_price) / close_price,
+                      "90_day_return": (df.iloc[idx+90][f'price_{project_id}_btc'] - close_price) / close_price,
+                      "120_day_return": (df.iloc[idx+120][f'price_{project_id}_btc'] - close_price) / close_price,
+                      "150_day_return": (df.iloc[idx+150][f'price_{project_id}_btc'] - close_price) / close_price,
+                      "180_day_return": (df.iloc[idx+180][f'price_{project_id}_btc'] - close_price) / close_price,
+                      "365_day_return": (df.iloc[idx+365][f'price_{project_id}_btc'] - close_price) / close_price
+                  })
     
-            if idx + 365 < len(df):
-                returns_btc.append({
-                    "date": date,
-                    "30_day_return": (df.iloc[idx+30][f'price_{project_id}_btc'] - close_price) / close_price,
-                    "45_day_return": (df.iloc[idx+45][f'price_{project_id}_btc'] - close_price) / close_price,
-                    "60_day_return": (df.iloc[idx+60][f'price_{project_id}_btc'] - close_price) / close_price,
-                    "75_day_return": (df.iloc[idx+75][f'price_{project_id}_btc'] - close_price) / close_price,
-                    "90_day_return": (df.iloc[idx+90][f'price_{project_id}_btc'] - close_price) / close_price,
-                    "120_day_return": (df.iloc[idx+120][f'price_{project_id}_btc'] - close_price) / close_price,
-                    "150_day_return": (df.iloc[idx+150][f'price_{project_id}_btc'] - close_price) / close_price,
-                    "180_day_return": (df.iloc[idx+180][f'price_{project_id}_btc'] - close_price) / close_price,
-                    "365_day_return": (df.iloc[idx+365][f'price_{project_id}_btc'] - close_price) / close_price
-                })
+          returns_btc = pd.DataFrame(returns_btc)
     
-        returns_btc = pd.DataFrame(returns_btc)
+          average_returns_btc = {
+              "30_day_return": (np.prod(1 + returns_btc["30_day_return"]) ** (1 / len(returns_btc["30_day_return"])) - 1) * 100,
+              "45_day_return": (np.prod(1 + returns_btc["45_day_return"]) ** (1 / len(returns_btc["45_day_return"])) - 1) * 100,
+              "60_day_return": (np.prod(1 + returns_btc["60_day_return"]) ** (1 / len(returns_btc["60_day_return"])) - 1) * 100,
+              "75_day_return": (np.prod(1 + returns_btc["75_day_return"]) ** (1 / len(returns_btc["75_day_return"])) - 1) * 100,
+              "90_day_return": (np.prod(1 + returns_btc["90_day_return"]) ** (1 / len(returns_btc["90_day_return"])) - 1) * 100,
+              "120_day_return": (np.prod(1 + returns_btc["120_day_return"]) ** (1 / len(returns_btc["120_day_return"])) - 1) * 100,
+              "150_day_return": (np.prod(1 + returns_btc["150_day_return"]) ** (1 / len(returns_btc["150_day_return"])) - 1) * 100,
+              "180_day_return": (np.prod(1 + returns_btc["180_day_return"]) ** (1 / len(returns_btc["180_day_return"])) - 1) * 100,
+              "365_day_return": (np.prod(1 + returns_btc["365_day_return"]) ** (1 / len(returns_btc["365_day_return"])) - 1) * 100
+          }
     
-        average_returns_btc = {
-            "30_day_return": (np.prod(1 + returns_btc["30_day_return"]) ** (1 / len(returns_btc["30_day_return"])) - 1) * 100,
-            "45_day_return": (np.prod(1 + returns_btc["45_day_return"]) ** (1 / len(returns_btc["45_day_return"])) - 1) * 100,
-            "60_day_return": (np.prod(1 + returns_btc["60_day_return"]) ** (1 / len(returns_btc["60_day_return"])) - 1) * 100,
-            "75_day_return": (np.prod(1 + returns_btc["75_day_return"]) ** (1 / len(returns_btc["75_day_return"])) - 1) * 100,
-            "90_day_return": (np.prod(1 + returns_btc["90_day_return"]) ** (1 / len(returns_btc["90_day_return"])) - 1) * 100,
-            "120_day_return": (np.prod(1 + returns_btc["120_day_return"]) ** (1 / len(returns_btc["120_day_return"])) - 1) * 100,
-            "150_day_return": (np.prod(1 + returns_btc["150_day_return"]) ** (1 / len(returns_btc["150_day_return"])) - 1) * 100,
-            "180_day_return": (np.prod(1 + returns_btc["180_day_return"]) ** (1 / len(returns_btc["180_day_return"])) - 1) * 100,
-            "365_day_return": (np.prod(1 + returns_btc["365_day_return"]) ** (1 / len(returns_btc["365_day_return"])) - 1) * 100
-        }
-    
-        average_returns_btc = pd.Series(average_returns_btc)
-    
+          average_returns_btc = pd.Series(average_returns_btc)
+        else:
+          average_returns_btc = {}  # Empty dictionary if dates_eth is empty
     
         # Plot data
         fig, ax = plt.subplots(figsize=(20,8))
@@ -279,31 +285,37 @@ elif authentication_status:
         ax3.set_xlabel('Date', fontsize=16)
         ax3.set_ylabel('Price', fontsize=16)
     
-    
-        fig4, ax4 = plt.subplots(figsize=(20, 8))
-        average_returns_usd.plot(kind='bar', color='crimson',label='Average returns', ax=ax4, fontsize=18)
-        ax4.legend(loc='upper right', fontsize=18)
-        ax4.set_title(f"Average returns after {project_id} {roll_1} days moving averages cross {roll_2} days moving averages line in USD", fontsize=18)
-        ax4.set_xlabel("period", fontsize=18)
-        ax4.set_ylabel("return", fontsize=18)
-        plt.xticks(np.arange(9), ['30 days', '45 days', '60 days', '75 days', '90 days', '120 days', '150 days', '180 days', '365 days'])
-    
-        fig5, ax5 = plt.subplots(figsize=(20, 8))
-        average_returns_eth.plot(kind='bar', color='crimson',label='Average returns', ax=ax5, fontsize=18)
-        ax5.legend(loc='upper right', fontsize=18)
-        ax5.set_title(f"Average returns after {project_id} {roll_1} days moving averages cross {roll_2} days moving averages line in ETH", fontsize=18)
-        ax5.set_xlabel("period", fontsize=18)
-        ax5.set_ylabel("return", fontsize=18)
-        plt.xticks(np.arange(9), ['30 days', '45 days', '60 days', '75 days', '90 days', '120 days', '150 days', '180 days', '365 days'])
-    
-        fig6, ax6 = plt.subplots(figsize=(20, 8))
-        average_returns_btc.plot(kind='bar', color='crimson',label='Average returns', ax=ax6, fontsize=18)
-        ax6.legend(loc='upper right', fontsize=18)
-        ax6.set_title(f"Average returns after {project_id} {roll_1} days moving averages cross {roll_2} days moving averages line in BTC", fontsize=18)
-        ax6.set_xlabel("period", fontsize=18)
-        ax6.set_ylabel("return", fontsize=18)
-        plt.xticks(np.arange(9), ['30 days', '45 days', '60 days', '75 days', '90 days', '120 days', '150 days', '180 days', '365 days'])
-    
+        if len(average_returns_usd) == 0:
+            st.write(f'There is no crossing points for {project_id}-{roll_1} and {roll_2} in USD in given period')
+        else:
+          fig4, ax4 = plt.subplots(figsize=(20, 8))
+          average_returns_usd.plot(kind='bar', color='crimson',label='Average returns', ax=ax4, fontsize=18)
+          ax4.legend(loc='upper right', fontsize=18)
+          ax4.set_title(f"Average returns after {project_id} {roll_1} days moving averages cross {roll_2} days moving averages line in USD", fontsize=18)
+          ax4.set_xlabel("period", fontsize=18)
+          ax4.set_ylabel("return", fontsize=18)
+          plt.xticks(np.arange(9), ['30 days', '45 days', '60 days', '75 days', '90 days', '120 days', '150 days', '180 days', '365 days'])
+        if len(average_returns_eth) == 0:
+            st.write(f'There is no crossing points for {project_id}-{roll_1} and {roll_2} in ETH in given period')
+        else:
+          fig5, ax5 = plt.subplots(figsize=(20, 8))
+          average_returns_eth.plot(kind='bar', color='crimson',label='Average returns', ax=ax5, fontsize=18)
+          ax5.legend(loc='upper right', fontsize=18)
+          ax5.set_title(f"Average returns after {project_id} {roll_1} days moving averages cross {roll_2} days moving averages line in ETH", fontsize=18)
+          ax5.set_xlabel("period", fontsize=18)
+          ax5.set_ylabel("return", fontsize=18)
+          plt.xticks(np.arange(9), ['30 days', '45 days', '60 days', '75 days', '90 days', '120 days', '150 days', '180 days', '365 days'])
+        if len(average_returns_btc) == 0:
+          st.write(f'There is no crossing points for {project_id}-{roll_1} and {roll_2} in BTC in given period')
+        else:
+          fig6, ax6 = plt.subplots(figsize=(20, 8))
+          average_returns_btc.plot(kind='bar', color='crimson',label='Average returns', ax=ax6, fontsize=18)
+          ax6.legend(loc='upper right', fontsize=18)
+          ax6.set_title(f"Average returns after {project_id} {roll_1} days moving averages cross {roll_2} days moving averages line in BTC", fontsize=18)
+          ax6.set_xlabel("period", fontsize=18)
+          ax6.set_ylabel("return", fontsize=18)
+          plt.xticks(np.arange(9), ['30 days', '45 days', '60 days', '75 days', '90 days', '120 days', '150 days', '180 days', '365 days'])
+        
         return fig,fig2,fig3,fig4,fig5,fig6
 
     	
