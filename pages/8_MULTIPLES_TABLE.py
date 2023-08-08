@@ -193,7 +193,7 @@ elif authentication_status:
         for project_id in project_ids:
             if project_id in ('makerdao','radiant-capital'):
               url1 = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
-              headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+              headers = {"Authorization": st.secrets["Authorization"]}
               response1 = requests.get(url1, headers=headers)
               data_shows1 = json.loads(response1.text)
               data1 = data_shows1['data']
@@ -248,7 +248,7 @@ elif authentication_status:
               df_list.append(table)
             elif project_id in ('uniswap'):
               url1 = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
-              headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+              headers = {"Authorization": st.secrets["Authorization"]}
               response1 = requests.get(url1, headers=headers)
               data_shows1 = json.loads(response1.text)
               data1 = data_shows1['data']
@@ -310,7 +310,7 @@ elif authentication_status:
               df_list.append(table)
             elif project_id in ('bitcoin','ethereum'):
               url1 = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
-              headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+              headers = {"Authorization": st.secrets["Authorization"]}
               response1 = requests.get(url1, headers=headers)
               data_shows1 = json.loads(response1.text)
               data1 = data_shows1['data']
@@ -372,7 +372,7 @@ elif authentication_status:
               df_list.append(table)
             elif project_id=='curve':
               url1 = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
-              headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+              headers = {"Authorization": st.secrets["Authorization"]}
               response1 = requests.get(url1, headers=headers)
               data_shows1 = json.loads(response1.text)
               data1 = data_shows1['data']
@@ -426,7 +426,7 @@ elif authentication_status:
     
             else:
               url1 = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics"
-              headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+              headers = {"Authorization": st.secrets["Authorization"]}
               response1 = requests.get(url1, headers=headers)
               data_shows1 = json.loads(response1.text)
               data1 = data_shows1['data']
