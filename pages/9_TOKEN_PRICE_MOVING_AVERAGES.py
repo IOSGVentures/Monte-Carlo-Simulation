@@ -344,16 +344,20 @@ date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y
 with st.form("monte_carlo_form"):
     if st.form_submit_button("Submit"):
         st.header(f"Here's Token price and {ma1}-days and {ma2}-days moving averages in USD with crossing points for {project_id.capitalize()}!")
-        f1,f2,f3,f4,f5,f6 = plot_rolling_averages(project_id,ma1,ma2, date)
-        st.pyplot(f1)
+        figures = plot_rolling_averages(project_id, ma1, ma2, date)
+        
+        st.pyplot(figures[0])
         st.header(f"Here's Token price and {ma1}-days and {ma2}-days moving averages in ETH with crossing points for {project_id.capitalize()}!")
-        st.pyplot(f2)
+        st.pyplot(figures[1])
         st.header(f"Here's Token price and {ma1}-days and {ma2}-days moving averages in BTC with crossing points for {project_id.capitalize()}!")
-        st.pyplot(f3)
+        st.pyplot(figures[2])
 
-        st.header(f"Here's Average returns after {project_id.capitalize()} {ma1} days moving averages cross {ma2} days moving averages line in USD!")
-        st.pyplot(f4)
-        st.header(f"Here's Average returns after {project_id.capitalize()} {ma1} days moving averages cross {ma2} days moving averages line in ETH!")
-        st.pyplot(f5)
-        st.header(f"Here's Average returns after {project_id.capitalize()} {ma1} days moving averages cross {ma2} days moving averages line in BTC!")
-        st.pyplot(f6)
+        if len(figures) > 3 and figures[3]:
+            st.header(f"Here's Average returns after {project_id.capitalize()} {ma1} days moving averages cross {ma2} days moving averages line in USD!")
+            st.pyplot(figures[3])
+        if len(figures) > 4 and figures[4]:
+            st.header(f"Here's Average returns after {project_id.capitalize()} {ma1} days moving averages cross {ma2} days moving averages line in ETH!")
+            st.pyplot(figures[4])
+        if len(figures) > 5 and figures[5]:
+            st.header(f"Here's Average returns after {project_id.capitalize()} {ma1} days moving averages cross {ma2} days moving averages line in BTC!")
+            st.pyplot(figures[5])
