@@ -63,7 +63,7 @@ elif authentication_status:
           return df
     
       url1 = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=price"
-      headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+      headers = {"Authorization": st.secrets["Authorization"]}
       response1 = requests.get(url1, headers=headers)
       data_shows1 = json.loads(response1.text)
       data1 = data_shows1['data']
@@ -75,7 +75,7 @@ elif authentication_status:
       realized_volatility_pr = np.std(price_pr[-365:]) * np.sqrt(365) * 100
     
       url3 = "https://api.tokenterminal.com/v2/projects/ethereum/metrics?metric_ids=price"
-      headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+      headers = {"Authorization": st.secrets["Authorization"]}
       response3 = requests.get(url3, headers=headers)
       data_shows3 = json.loads(response3.text)
       data3 = data_shows3['data']
@@ -101,7 +101,7 @@ elif authentication_status:
             df = df.T.dropna()
             return df
     
-      headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+      headers = {"Authorization": st.secrets["Authorization"]}
     
       url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=price"
       response = requests.get(url, headers=headers)
