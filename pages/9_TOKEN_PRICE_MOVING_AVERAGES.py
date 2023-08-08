@@ -303,7 +303,7 @@ elif authentication_status:
           fig5, ax5 = plt.subplots(figsize=(20, 8))
           average_returns_eth.plot(kind='bar', color='crimson',label='Average returns', ax=ax5, fontsize=18)
           for i, v in enumerate(average_returns_eth.values):
-            ax4.text(i, v + 0.02, f'{v:.2f}%', color='black', ha='center', fontsize=14)
+            ax5.text(i, v + 0.02, f'{v:.2f}%', color='black', ha='center', fontsize=14)
           ax5.legend(loc='upper right', fontsize=18)
           ax5.set_title(f"Average returns after {project_id} {roll_1} days moving averages cross {roll_2} days moving averages line in ETH", fontsize=18)
           ax5.set_xlabel("period", fontsize=18)
@@ -315,7 +315,7 @@ elif authentication_status:
           fig6, ax6 = plt.subplots(figsize=(20, 8))
           average_returns_btc.plot(kind='bar', color='crimson',label='Average returns', ax=ax6, fontsize=18)
           for i, v in enumerate(average_returns_btc.values):
-            ax4.text(i, v + 0.02, f'{v:.2f}%', color='black', ha='center', fontsize=14)
+            ax6.text(i, v + 0.02, f'{v:.2f}%', color='black', ha='center', fontsize=14)
           ax6.legend(loc='upper right', fontsize=18)
           ax6.set_title(f"Average returns after {project_id} {roll_1} days moving averages cross {roll_2} days moving averages line in BTC", fontsize=18)
           ax6.set_xlabel("period", fontsize=18)
