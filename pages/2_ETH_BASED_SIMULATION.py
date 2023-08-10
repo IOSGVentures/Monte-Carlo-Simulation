@@ -179,7 +179,7 @@ elif authentication_status:
           "Price Level": ["${0:,.1f}".format(price) for price in price_levels], # add $ and format prices
           "Probability": probabilities
       })
-      table.insert(0, "Current Price", "${0:,.2f}".format(price0))
+      table.insert(0, "Current Price", "${0:,.4f}".format(price0))
       table["Probability"] = table["Probability"].apply(lambda x: f"{x:.2%}")
       fig, ax = plt.subplots(figsize=(30,12))
     
