@@ -169,11 +169,11 @@ elif authentication_status:
             float(round((price0 + price0),4)),   # current_price + 600%
             float(round((price0 + 2.5 * price0),4)),   # current_price + 1000%
             float(round((price0 + 3 * price0),4)),   # current_price + 1500%
-            float(round((price0 + 4 * price0),4))   # current_price + 1500%
+            float(round((price0 + 4 * price0),4)),   # current_price + 1500%
             float(round((price0 + 5 * price0),4)),   # current_price + 1500%
-            float(round((price0 + 6 * price0),4))   # current_price + 1500%
+            float(round((price0 + 6 * price0),4)),   # current_price + 1500%
             float(round((price0 + 7 * price0),4)),   # current_price + 1500%
-            float(round((price0 + 8 * price0),4))   # current_price + 1500%
+            float(round((price0 + 8 * price0),4)),   # current_price + 1500%
             float(round((price0 + 9 * price0),4)),   # current_price + 1500%
             float(round((price0 + 10 * price0),4))   # current_price + 1500%
         ]
