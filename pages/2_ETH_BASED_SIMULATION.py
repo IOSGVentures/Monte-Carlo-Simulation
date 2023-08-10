@@ -176,7 +176,7 @@ elif authentication_status:
     
       # Create a table of current price and probabilities
       table = pd.DataFrame({
-          "Price Level": ["${0:,.1f}".format(price) for price in price_levels], # add $ and format prices
+          "Price Level": ["${0:,.4f}".format(price) for price in price_levels], # add $ and format prices
           "Probability": probabilities
       })
       table.insert(0, "Current Price", "${0:,.4f}".format(price0))
