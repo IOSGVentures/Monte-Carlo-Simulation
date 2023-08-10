@@ -120,24 +120,24 @@ elif authentication_status:
       delta_t = 1/365
       num_periods = period_in_days
       price_levels = [
-            float(round((price0 - 0.9 * price0),2)),  # current_price - 90%
-            float(round((price0 - 0.7 * price0),2)),  # current_price - 70%
-            float(round((price0 - 0.6 * price0),2)),  # current_price - 60%
-            float(round((price0 - 0.5 * price0),2)),  # current_price - 50%
-            float(round((price0 - 0.4 * price0),2)),  # current_price - 40%
-            float(round((price0 - 0.3 * price0),2)),  # current_price - 30%
-            float(round((price0 - 0.2 * price0),2)),  # current_price - 20%
-            float(round((price0),2)),                 # current_price
-            float(round((price0 + 0.2 * price0),2)),  # current_price + 20%
-            float(round((price0 + 0.4 * price0),2)),   # current_price + 40%
-            float(round((price0 + 0.6 * price0),2)),  # current_price + 60%
-            float(round((price0 + 0.8 * price0),2)),  # current_price + 80%
-            float(round((price0 + 2 * price0),2)),   # current_price + 200%
-            float(round((price0 + 3 * price0),2)),   # current_price + 300%
-            float(round((price0 + 4 * price0),2)),   # current_price + 400%
-            float(round((price0 + 6 * price0),2)),   # current_price + 600%
-            float(round((price0 + 10 * price0),2)),   # current_price + 1000%
-            float(round((price0 + 15 * price0),2))   # current_price + 1500%
+            float(round((price0 - 0.9 * price0),4)),  # current_price - 90%
+            float(round((price0 - 0.7 * price0),4)),  # current_price - 70%
+            float(round((price0 - 0.6 * price0),4)),  # current_price - 60%
+            float(round((price0 - 0.5 * price0),4)),  # current_price - 50%
+            float(round((price0 - 0.4 * price0),4)),  # current_price - 40%
+            float(round((price0 - 0.3 * price0),4)),  # current_price - 30%
+            float(round((price0 - 0.2 * price0),4)),  # current_price - 20%
+            float(round((price0),4)),                 # current_price
+            float(round((price0 + 0.2 * price0),4)),  # current_price + 20%
+            float(round((price0 + 0.4 * price0),4)),   # current_price + 40%
+            float(round((price0 + 0.6 * price0),4)),  # current_price + 60%
+            float(round((price0 + 0.8 * price0),4)),  # current_price + 80%
+            float(round((price0 + 2 * price0),4)),   # current_price + 200%
+            float(round((price0 + 3 * price0),4)),   # current_price + 300%
+            float(round((price0 + 4 * price0),4)),   # current_price + 400%
+            float(round((price0 + 6 * price0),4)),   # current_price + 600%
+            float(round((price0 + 10 * price0),4)),   # current_price + 1000%
+            float(round((price0 + 15 * price0),4))   # current_price + 1500%
         ]
     
       def model(price0=price0, sigma=sigma, mean=mean, delta_t=delta_t, num_periods=num_periods):
