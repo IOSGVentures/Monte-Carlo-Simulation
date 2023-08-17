@@ -52,7 +52,7 @@ elif authentication_status:
     st.markdown("##")
 
     def plot_rolling_averages(project_id, roll_1, roll_2, start_date):
-
+    
         def get_data(data):
             date = []
             price = []
@@ -64,7 +64,7 @@ elif authentication_status:
             df = df.T.dropna()
             return df
     
-        headers = {"Authorization": st.secrets["Authorization"]}
+        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
     
         project_ids = ['bitcoin','ethereum']
     
@@ -100,7 +100,6 @@ elif authentication_status:
         # Calculate 50, 100, and 200 day moving average
         df[f"{roll_1}_day_MA_BTC"] = df[f"price_{project_id}_btc"].rolling(window=roll_1).mean()
         df[f"{roll_2}_day_MA_BTC"] = df[f"price_{project_id}_btc"].rolling(window=roll_2).mean()
-    
     
         dates_usd = []
         for i in range(len(df) - 15):
@@ -198,7 +197,7 @@ elif authentication_status:
           average_returns_eth = {}  # Empty dictionary if dates_eth is empty
     
         dates_btc = []
-          
+    
         for i in range(len(df) - 15):
             if df.iloc[i][f"{roll_2}_day_MA_BTC"] > df.iloc[i][f"{roll_1}_day_MA_BTC"]:
                 if df.iloc[i+1][f"{roll_2}_day_MA_BTC"] < df.iloc[i+1][f"{roll_1}_day_MA_BTC"]:
