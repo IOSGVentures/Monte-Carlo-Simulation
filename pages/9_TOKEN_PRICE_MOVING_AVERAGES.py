@@ -215,18 +215,35 @@ elif authentication_status:
               returns_eth.append(return_data)  
           returns_eth = pd.DataFrame(returns_eth)
     
-          average_returns_eth = {
-          "30_day_return": (np.prod(1 + returns_eth["30_day_return"]) ** (1 / len(returns_eth["30_day_return"])) - 1) * 100,
-          "45_day_return": (np.prod(1 + returns_eth["45_day_return"]) ** (1 / len(returns_eth["45_day_return"])) - 1) * 100,
-          "60_day_return": (np.prod(1 + returns_eth["60_day_return"]) ** (1 / len(returns_eth["60_day_return"])) - 1) * 100,
-          "75_day_return": (np.prod(1 + returns_eth["75_day_return"]) ** (1 / len(returns_eth["75_day_return"])) - 1) * 100,
-          "90_day_return": (np.prod(1 + returns_eth["90_day_return"]) ** (1 / len(returns_eth["90_day_return"])) - 1) * 100,
-          "120_day_return": (np.prod(1 + returns_eth["120_day_return"]) ** (1 / len(returns_eth["120_day_return"])) - 1) * 100,
-          "150_day_return": (np.prod(1 + returns_eth["150_day_return"]) ** (1 / len(returns_eth["150_day_return"])) - 1) * 100,
-          "180_day_return": (np.prod(1 + returns_eth["180_day_return"]) ** (1 / len(returns_eth["180_day_return"])) - 1) * 100,
-          "365_day_return": (np.prod(1 + returns_eth["365_day_return"]) ** (1 / len(returns_eth["365_day_return"])) - 1) * 100
-          }
-    
+          average_returns_eth = {}
+
+          if "30_day_return" in returns_eth:
+              average_returns_eth["30_day_return"] = (np.prod(1 + returns_eth["30_day_return"]) ** (1 / len(returns_eth["30_day_return"])) - 1) * 100
+            
+          if "45_day_return" in returns_eth:
+              average_returns_eth["45_day_return"] = (np.prod(1 + returns_eth["45_day_return"]) ** (1 / len(returns_eth["45_day_return"])) - 1) * 100
+            
+          if "60_day_return" in returns_eth:
+              average_returns_eth["60_day_return"] = (np.prod(1 + returns_eth["60_day_return"]) ** (1 / len(returns_eth["60_day_return"])) - 1) * 100
+            
+          if "75_day_return" in returns_eth:
+              average_returns_eth["75_day_return"] = (np.prod(1 + returns_eth["75_day_return"]) ** (1 / len(returns_eth["75_day_return"])) - 1) * 100
+            
+          if "90_day_return" in returns_eth:
+              average_returns_eth["90_day_return"] = (np.prod(1 + returns_eth["90_day_return"]) ** (1 / len(returns_eth["90_day_return"])) - 1) * 100
+            
+          if "120_day_return" in returns_eth:
+              average_returns_eth["120_day_return"] = (np.prod(1 + returns_eth["120_day_return"]) ** (1 / len(returns_eth["120_day_return"])) - 1) * 100
+            
+          if "150_day_return" in returns_eth:
+              average_returns_eth["150_day_return"] = (np.prod(1 + returns_eth["150_day_return"]) ** (1 / len(returns_eth["150_day_return"])) - 1) * 100
+            
+          if "180_day_return" in returns_eth:
+              average_returns_eth["180_day_return"] = (np.prod(1 + returns_eth["180_day_return"]) ** (1 / len(returns_eth["180_day_return"])) - 1) * 100
+            
+          if "365_day_return" in returns_eth:
+              average_returns_eth["365_day_return"] = (np.prod(1 + returns_eth["365_day_return"]) ** (1 / len(returns_eth["365_day_return"])) - 1) * 100
+
           average_returns_eth = pd.Series(average_returns_eth)
     
         else:
@@ -273,17 +290,34 @@ elif authentication_status:
               returns_btc.append(return_data)  
           returns_btc = pd.DataFrame(returns_btc)
     
-          average_returns_btc = {
-              "30_day_return": (np.prod(1 + returns_btc["30_day_return"]) ** (1 / len(returns_btc["30_day_return"])) - 1) * 100,
-              "45_day_return": (np.prod(1 + returns_btc["45_day_return"]) ** (1 / len(returns_btc["45_day_return"])) - 1) * 100,
-              "60_day_return": (np.prod(1 + returns_btc["60_day_return"]) ** (1 / len(returns_btc["60_day_return"])) - 1) * 100,
-              "75_day_return": (np.prod(1 + returns_btc["75_day_return"]) ** (1 / len(returns_btc["75_day_return"])) - 1) * 100,
-              "90_day_return": (np.prod(1 + returns_btc["90_day_return"]) ** (1 / len(returns_btc["90_day_return"])) - 1) * 100,
-              "120_day_return": (np.prod(1 + returns_btc["120_day_return"]) ** (1 / len(returns_btc["120_day_return"])) - 1) * 100,
-              "150_day_return": (np.prod(1 + returns_btc["150_day_return"]) ** (1 / len(returns_btc["150_day_return"])) - 1) * 100,
-              "180_day_return": (np.prod(1 + returns_btc["180_day_return"]) ** (1 / len(returns_btc["180_day_return"])) - 1) * 100,
-              "365_day_return": (np.prod(1 + returns_btc["365_day_return"]) ** (1 / len(returns_btc["365_day_return"])) - 1) * 100
-          }
+          average_returns_btc = {}
+
+          if "30_day_return" in returns_btc:
+              average_returns_btc["30_day_return"] = (np.prod(1 + returns_btc["30_day_return"]) ** (1 / len(returns_btc["30_day_return"])) - 1) * 100
+            
+          if "45_day_return" in returns_btc:
+              average_returns_btc["45_day_return"] = (np.prod(1 + returns_btc["45_day_return"]) ** (1 / len(returns_btc["45_day_return"])) - 1) * 100
+            
+          if "60_day_return" in returns_btc:
+              average_returns_btc["60_day_return"] = (np.prod(1 + returns_btc["60_day_return"]) ** (1 / len(returns_btc["60_day_return"])) - 1) * 100
+            
+          if "75_day_return" in returns_btc:
+              average_returns_btc["75_day_return"] = (np.prod(1 + returns_btc["75_day_return"]) ** (1 / len(returns_btc["75_day_return"])) - 1) * 100
+            
+          if "90_day_return" in returns_btc:
+              average_returns_btc["90_day_return"] = (np.prod(1 + returns_btc["90_day_return"]) ** (1 / len(returns_btc["90_day_return"])) - 1) * 100
+            
+          if "120_day_return" in returns_btc:
+              average_returns_btc["120_day_return"] = (np.prod(1 + returns_btc["120_day_return"]) ** (1 / len(returns_btc["120_day_return"])) - 1) * 100
+            
+          if "150_day_return" in returns_btc:
+              average_returns_btc["150_day_return"] = (np.prod(1 + returns_btc["150_day_return"]) ** (1 / len(returns_btc["150_day_return"])) - 1) * 100
+            
+          if "180_day_return" in returns_btc:
+              average_returns_btc["180_day_return"] = (np.prod(1 + returns_btc["180_day_return"]) ** (1 / len(returns_btc["180_day_return"])) - 1) * 100
+            
+          if "365_day_return" in returns_btc:
+              average_returns_btc["365_day_return"] = (np.prod(1 + returns_btc["365_day_return"]) ** (1 / len(returns_btc["365_day_return"])) - 1) * 100
     
           average_returns_btc = pd.Series(average_returns_btc)
         else:
