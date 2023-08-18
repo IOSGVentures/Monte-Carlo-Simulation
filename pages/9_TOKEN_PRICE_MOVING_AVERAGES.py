@@ -119,15 +119,24 @@ elif authentication_status:
               #if idx + 365 < len(df):
               returns_usd.append({
                       "date": date,
-                      "30_day_return": (df.iloc[idx+30][f'price_{project_id}_usd'] - close_price) / close_price,
-                      "45_day_return": (df.iloc[idx+45][f'price_{project_id}_usd'] - close_price) / close_price,
-                      "60_day_return": (df.iloc[idx+60][f'price_{project_id}_usd'] - close_price) / close_price,
-                      "75_day_return": (df.iloc[idx+75][f'price_{project_id}_usd'] - close_price) / close_price,
-                      "90_day_return": (df.iloc[idx+90][f'price_{project_id}_usd'] - close_price) / close_price,
-                      "120_day_return": (df.iloc[idx+120][f'price_{project_id}_usd'] - close_price) / close_price,
-                      "150_day_return": (df.iloc[idx+150][f'price_{project_id}_usd'] - close_price) / close_price,
-                      "180_day_return": (df.iloc[idx+180][f'price_{project_id}_usd'] - close_price) / close_price,
-                      "365_day_return": (df.iloc[idx+365][f'price_{project_id}_usd'] - close_price) / close_price
+                      if idx + 30 < len(df):
+                          "30_day_return": (df.iloc[idx+30][f'price_{project_id}_usd'] - close_price) / close_price,
+                      if idx + 45 < len(df): 
+                          "45_day_return": (df.iloc[idx+45][f'price_{project_id}_usd'] - close_price) / close_price,
+                      if idx + 60 < len(df):    
+                          "60_day_return": (df.iloc[idx+60][f'price_{project_id}_usd'] - close_price) / close_price,
+                      if idx + 75 < len(df):    
+                          "75_day_return": (df.iloc[idx+75][f'price_{project_id}_usd'] - close_price) / close_price,
+                      if idx + 90 < len(df):    
+                          "90_day_return": (df.iloc[idx+90][f'price_{project_id}_usd'] - close_price) / close_price,
+                      if idx + 120 < len(df):    
+                          "120_day_return": (df.iloc[idx+120][f'price_{project_id}_usd'] - close_price) / close_price,
+                      if idx + 150 < len(df):    
+                          "150_day_return": (df.iloc[idx+150][f'price_{project_id}_usd'] - close_price) / close_price,
+                      if idx + 180 < len(df):    
+                          "180_day_return": (df.iloc[idx+180][f'price_{project_id}_usd'] - close_price) / close_price,
+                      if idx + 365 < len(df):    
+                          "365_day_return": (df.iloc[idx+365][f'price_{project_id}_usd'] - close_price) / close_price
                   })
     
           returns_usd = pd.DataFrame(returns_usd)
@@ -166,15 +175,24 @@ elif authentication_status:
               #if idx + 365 < len(df):
               returns_eth.append({
                       "date": date,
-                      "30_day_return": (df.iloc[idx+30][f'price_{project_id}_eth'] - close_price) / close_price,
-                      "45_day_return": (df.iloc[idx+45][f'price_{project_id}_eth'] - close_price) / close_price,
-                      "60_day_return": (df.iloc[idx+60][f'price_{project_id}_eth'] - close_price) / close_price,
-                      "75_day_return": (df.iloc[idx+75][f'price_{project_id}_eth'] - close_price) / close_price,
-                      "90_day_return": (df.iloc[idx+90][f'price_{project_id}_eth'] - close_price) / close_price,
-                      "120_day_return": (df.iloc[idx+120][f'price_{project_id}_eth'] - close_price) / close_price,
-                      "150_day_return": (df.iloc[idx+150][f'price_{project_id}_eth'] - close_price) / close_price,
-                      "180_day_return": (df.iloc[idx+180][f'price_{project_id}_eth'] - close_price) / close_price,
-                      "365_day_return": (df.iloc[idx+365][f'price_{project_id}_eth'] - close_price) / close_price
+                      if idx + 30 < len(df):
+                          "30_day_return": (df.iloc[idx+30][f'price_{project_id}_eth'] - close_price) / close_price,
+                      if idx + 45 < len(df):
+                          "45_day_return": (df.iloc[idx+45][f'price_{project_id}_eth'] - close_price) / close_price,
+                      if idx + 60 < len(df):
+                          "60_day_return": (df.iloc[idx+60][f'price_{project_id}_eth'] - close_price) / close_price,
+                      if idx + 75 < len(df):    
+                          "75_day_return": (df.iloc[idx+75][f'price_{project_id}_eth'] - close_price) / close_price,
+                      if idx + 90 < len(df):    
+                          "90_day_return": (df.iloc[idx+90][f'price_{project_id}_eth'] - close_price) / close_price,
+                      if idx + 120 < len(df):    
+                          "120_day_return": (df.iloc[idx+120][f'price_{project_id}_eth'] - close_price) / close_price,
+                      if idx + 150 < len(df):    
+                          "150_day_return": (df.iloc[idx+150][f'price_{project_id}_eth'] - close_price) / close_price,
+                      if idx + 180 < len(df):    
+                          "180_day_return": (df.iloc[idx+180][f'price_{project_id}_eth'] - close_price) / close_price,
+                      if idx + 365 < len(df):    
+                          "365_day_return": (df.iloc[idx+365][f'price_{project_id}_eth'] - close_price) / close_price
                   })
     
           returns_eth = pd.DataFrame(returns_eth)
@@ -215,15 +233,24 @@ elif authentication_status:
               #if idx + 365 < len(df):
               returns_btc.append({
                       "date": date,
-                      "30_day_return": (df.iloc[idx+30][f'price_{project_id}_btc'] - close_price) / close_price,
-                      "45_day_return": (df.iloc[idx+45][f'price_{project_id}_btc'] - close_price) / close_price,
-                      "60_day_return": (df.iloc[idx+60][f'price_{project_id}_btc'] - close_price) / close_price,
-                      "75_day_return": (df.iloc[idx+75][f'price_{project_id}_btc'] - close_price) / close_price,
-                      "90_day_return": (df.iloc[idx+90][f'price_{project_id}_btc'] - close_price) / close_price,
-                      "120_day_return": (df.iloc[idx+120][f'price_{project_id}_btc'] - close_price) / close_price,
-                      "150_day_return": (df.iloc[idx+150][f'price_{project_id}_btc'] - close_price) / close_price,
-                      "180_day_return": (df.iloc[idx+180][f'price_{project_id}_btc'] - close_price) / close_price,
-                      "365_day_return": (df.iloc[idx+365][f'price_{project_id}_btc'] - close_price) / close_price
+                      if idx + 30 < len(df):
+                          "30_day_return": (df.iloc[idx+30][f'price_{project_id}_btc'] - close_price) / close_price,
+                      if idx + 45 < len(df):
+                          "45_day_return": (df.iloc[idx+45][f'price_{project_id}_btc'] - close_price) / close_price,
+                      if idx + 60 < len(df):
+                          "60_day_return": (df.iloc[idx+60][f'price_{project_id}_btc'] - close_price) / close_price,
+                      if idx + 75 < len(df):
+                          "75_day_return": (df.iloc[idx+75][f'price_{project_id}_btc'] - close_price) / close_price,
+                      if idx + 90 < len(df):
+                          "90_day_return": (df.iloc[idx+90][f'price_{project_id}_btc'] - close_price) / close_price,
+                      if idx + 120 < len(df):
+                          "120_day_return": (df.iloc[idx+120][f'price_{project_id}_btc'] - close_price) / close_price,
+                      if idx + 150 < len(df):
+                          "150_day_return": (df.iloc[idx+150][f'price_{project_id}_btc'] - close_price) / close_price,
+                      if idx + 180 < len(df):
+                          "180_day_return": (df.iloc[idx+180][f'price_{project_id}_btc'] - close_price) / close_price,
+                      if idx + 365 < len(df):
+                          "365_day_return": (df.iloc[idx+365][f'price_{project_id}_btc'] - close_price) / close_price
                   })
     
           returns_btc = pd.DataFrame(returns_btc)
