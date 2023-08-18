@@ -116,8 +116,8 @@ elif authentication_status:
               idx = df.index.get_loc(date)
               close_price = df.iloc[idx][f'price_{project_id}_usd']
     
-              if idx + 365 < len(df):
-                  returns_usd.append({
+              #if idx + 365 < len(df):
+              returns_usd.append({
                       "date": date,
                       "30_day_return": (df.iloc[idx+30][f'price_{project_id}_usd'] - close_price) / close_price,
                       "45_day_return": (df.iloc[idx+45][f'price_{project_id}_usd'] - close_price) / close_price,
@@ -163,8 +163,8 @@ elif authentication_status:
               idx = df.index.get_loc(date)
               close_price = df.iloc[idx][f'price_{project_id}_eth']
     
-              if idx + 365 < len(df):
-                  returns_eth.append({
+              #if idx + 365 < len(df):
+              returns_eth.append({
                       "date": date,
                       "30_day_return": (df.iloc[idx+30][f'price_{project_id}_eth'] - close_price) / close_price,
                       "45_day_return": (df.iloc[idx+45][f'price_{project_id}_eth'] - close_price) / close_price,
@@ -212,8 +212,8 @@ elif authentication_status:
               idx = df.index.get_loc(date)
               close_price = df.iloc[idx][f'price_{project_id}_btc']
     
-              if idx + 365 < len(df):
-                  returns_btc.append({
+              #if idx + 365 < len(df):
+              returns_btc.append({
                       "date": date,
                       "30_day_return": (df.iloc[idx+30][f'price_{project_id}_btc'] - close_price) / close_price,
                       "45_day_return": (df.iloc[idx+45][f'price_{project_id}_btc'] - close_price) / close_price,
