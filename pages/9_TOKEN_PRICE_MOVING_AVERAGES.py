@@ -105,7 +105,7 @@ elif authentication_status:
         for i in range(len(df) - 15):
             if df.iloc[i][f"{roll_2}_day_MA_USD"] > df.iloc[i][f"{roll_1}_day_MA_USD"]:
                 if df.iloc[i+1][f"{roll_2}_day_MA_USD"] < df.iloc[i+1][f"{roll_1}_day_MA_USD"]:
-                    if (df.iloc[i+1:i+16][f"{roll_2}_day_MA_USD"] < df.iloc[i+1:i+11][f"{roll_1}_day_MA_USD"]).all():
+                    if (df.iloc[i+1:i+11][f"{roll_2}_day_MA_USD"] < df.iloc[i+1:i+11][f"{roll_1}_day_MA_USD"]).all():
                         dates_usd.append(df.index[i+1])
                 #if eth.iloc[i]["Close"] < eth.iloc[i]["200_day_MA"] and eth.iloc[i+14]["Close"] < eth.iloc[i+14]["200_day_MA"]:
                     #if eth.iloc[i+14]["Close"] > eth.iloc[i+14]["200_day_MA"]:
@@ -179,7 +179,7 @@ elif authentication_status:
         for i in range(len(df) - 15):
             if df.iloc[i][f"{roll_2}_day_MA_ETH"] > df.iloc[i][f"{roll_1}_day_MA_ETH"]:
                 if df.iloc[i+1][f"{roll_2}_day_MA_ETH"] < df.iloc[i+1][f"{roll_1}_day_MA_ETH"]:
-                    if (df.iloc[i+1:i+16][f"{roll_2}_day_MA_ETH"] < df.iloc[i+1:i+11][f"{roll_1}_day_MA_ETH"]).all():
+                    if (df.iloc[i+1:i+11][f"{roll_2}_day_MA_ETH"] < df.iloc[i+1:i+11][f"{roll_1}_day_MA_ETH"]).all():
                         dates_eth.append(df.index[i+1])
                 #if eth.iloc[i]["Close"] < eth.iloc[i]["200_day_MA"] and eth.iloc[i+14]["Close"] < eth.iloc[i+14]["200_day_MA"]:
                     #if eth.iloc[i+14]["Close"] > eth.iloc[i+14]["200_day_MA"]:
@@ -254,7 +254,7 @@ elif authentication_status:
         for i in range(len(df) - 15):
             if df.iloc[i][f"{roll_2}_day_MA_BTC"] > df.iloc[i][f"{roll_1}_day_MA_BTC"]:
                 if df.iloc[i+1][f"{roll_2}_day_MA_BTC"] < df.iloc[i+1][f"{roll_1}_day_MA_BTC"]:
-                    if (df.iloc[i+1:i+16][f"{roll_2}_day_MA_BTC"] < df.iloc[i+1:i+11][f"{roll_1}_day_MA_BTC"]).all():
+                    if (df.iloc[i+1:i+11][f"{roll_2}_day_MA_BTC"] < df.iloc[i+1:i+11][f"{roll_1}_day_MA_BTC"]).all():
                         dates_btc.append(df.index[i+1])
                 #if eth.iloc[i]["Close"] < eth.iloc[i]["200_day_MA"] and eth.iloc[i+11]["Close"] < eth.iloc[i+14]["200_day_MA"]:
                     #if eth.iloc[i+14]["Close"] > eth.iloc[i+14]["200_day_MA"]:
