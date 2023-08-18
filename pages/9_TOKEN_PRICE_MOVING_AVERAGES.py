@@ -142,15 +142,24 @@ elif authentication_status:
           returns_usd = pd.DataFrame(returns_usd)
     
           average_returns_usd = {
-              "30_day_return": (np.prod(1 + returns_usd["30_day_return"]) ** (1 / len(returns_usd["30_day_return"])) - 1) * 100,
-              "45_day_return": (np.prod(1 + returns_usd["45_day_return"]) ** (1 / len(returns_usd["45_day_return"])) - 1) * 100,
-              "60_day_return": (np.prod(1 + returns_usd["60_day_return"]) ** (1 / len(returns_usd["60_day_return"])) - 1) * 100,
-              "75_day_return": (np.prod(1 + returns_usd["75_day_return"]) ** (1 / len(returns_usd["75_day_return"])) - 1) * 100,
-              "90_day_return": (np.prod(1 + returns_usd["90_day_return"]) ** (1 / len(returns_usd["90_day_return"])) - 1) * 100,
-              "120_day_return": (np.prod(1 + returns_usd["120_day_return"]) ** (1 / len(returns_usd["120_day_return"])) - 1) * 100,
-              "150_day_return": (np.prod(1 + returns_usd["150_day_return"]) ** (1 / len(returns_usd["150_day_return"])) - 1) * 100,
-              "180_day_return": (np.prod(1 + returns_usd["180_day_return"]) ** (1 / len(returns_usd["180_day_return"])) - 1) * 100,
-              "365_day_return": (np.prod(1 + returns_usd["365_day_return"]) ** (1 / len(returns_usd["365_day_return"])) - 1) * 100
+              if returns_usd["30_day_return"]:
+                  "30_day_return": (np.prod(1 + returns_usd["30_day_return"]) ** (1 / len(returns_usd["30_day_return"])) - 1) * 100,
+              if returns_usd["45_day_return"]:
+                  "45_day_return": (np.prod(1 + returns_usd["45_day_return"]) ** (1 / len(returns_usd["45_day_return"])) - 1) * 100,
+              if returns_usd["60_day_return"]:    
+                  "60_day_return": (np.prod(1 + returns_usd["60_day_return"]) ** (1 / len(returns_usd["60_day_return"])) - 1) * 100,
+              if returns_usd["75_day_return"]:    
+                  "75_day_return": (np.prod(1 + returns_usd["75_day_return"]) ** (1 / len(returns_usd["75_day_return"])) - 1) * 100,
+              if returns_usd["90_day_return"]:    
+                  "90_day_return": (np.prod(1 + returns_usd["90_day_return"]) ** (1 / len(returns_usd["90_day_return"])) - 1) * 100,
+              if returns_usd["120_day_return"]:    
+                  "120_day_return": (np.prod(1 + returns_usd["120_day_return"]) ** (1 / len(returns_usd["120_day_return"])) - 1) * 100,
+              if returns_usd["150_day_return"]:    
+                  "150_day_return": (np.prod(1 + returns_usd["150_day_return"]) ** (1 / len(returns_usd["150_day_return"])) - 1) * 100,
+              if returns_usd["180_day_return"]:    
+                  "180_day_return": (np.prod(1 + returns_usd["180_day_return"]) ** (1 / len(returns_usd["180_day_return"])) - 1) * 100,
+              if returns_usd["365_day_return"]:    
+                  "365_day_return": (np.prod(1 + returns_usd["365_day_return"]) ** (1 / len(returns_usd["365_day_return"])) - 1) * 100
           }
     
           average_returns_usd = pd.Series(average_returns_usd)
