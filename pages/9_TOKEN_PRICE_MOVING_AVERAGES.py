@@ -136,7 +136,7 @@ elif authentication_status:
               if idx + 180 < len(df):    
                 return_data["180_day_return"] = (df.iloc[idx+180][f'price_{project_id}_usd'] - close_price) / close_price
               if idx + 365 < len(df):    
-                return_data["365_day_return"] = (df.iloc[idx+365][f'price_{project_id}_usd'] - close_price) / close_pric
+                return_data["365_day_return"] = (df.iloc[idx+365][f'price_{project_id}_usd'] - close_price) / close_price
                       
               returns_usd.append(return_data)  
           returns_usd = pd.DataFrame(returns_usd)
