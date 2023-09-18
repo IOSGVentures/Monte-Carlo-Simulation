@@ -210,7 +210,7 @@ elif authentication_status:
               if idx + 180 < len(df):    
                 return_data["180_day_return"] = (df.iloc[idx+180][f'price_{project_id}_eth'] - close_price) / close_price
               if idx + 365 < len(df):    
-                return_data["365_day_return"] = (df.iloc[idx+365][f'price_{project_id}_eth'] - close_price) / close_pric
+                return_data["365_day_return"] = (df.iloc[idx+365][f'price_{project_id}_eth'] - close_price) / close_price
                       
               returns_eth.append(return_data)  
           returns_eth = pd.DataFrame(returns_eth)
@@ -285,7 +285,7 @@ elif authentication_status:
               if idx + 180 < len(df):    
                 return_data["180_day_return"] = (df.iloc[idx+180][f'price_{project_id}_btc'] - close_price) / close_price
               if idx + 365 < len(df):    
-                return_data["365_day_return"] = (df.iloc[idx+365][f'price_{project_id}_btc'] - close_price) / close_pric
+                return_data["365_day_return"] = (df.iloc[idx+365][f'price_{project_id}_btc'] - close_price) / close_price
                       
               returns_btc.append(return_data)  
           returns_btc = pd.DataFrame(returns_btc)
